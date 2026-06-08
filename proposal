@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUKA · Sales of the Future</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap');
+  :root{
+    --black:#0a0a0c;--black2:#141318;--red:#FF3246;--purple:#AB4CFE;
+    --plum:#51415B;--plum-lt:#6E5B7B;--cream:#FFF5D1;--paper:#F6F4F1;
+    --ink:#17141a;--muted:#9a93a3;--muted-d:#6b6573;--pink:#C73A8E;--violet:#7A4DD6;
+    --line:rgba(255,255,255,.12);--line-d:rgba(20,16,24,.12);
+    --disp:'Archivo Narrow',sans-serif;--sans:'Archivo',sans-serif;--mono:'Spline Sans Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--black);color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--red);color:#fff;}
+  #bar{position:fixed;top:0;left:0;height:3px;background:var(--red);width:0;z-index:200;transition:width .1s linear;}
+  #rail{position:fixed;right:2.2vw;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:18px;mix-blend-mode:difference;}
+  #rail a{display:flex;align-items:center;gap:12px;text-decoration:none;justify-content:flex-end;}
+  #rail .lab{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#fff;opacity:0;transform:translateX(6px);transition:.3s;white-space:nowrap;}
+  #rail a:hover .lab,#rail a.on .lab{opacity:1;transform:none;}
+  #rail .dot{width:9px;height:9px;border:1.5px solid #fff;border-radius:50%;transition:.3s;flex:0 0 auto;}
+  #rail a.on .dot{background:var(--red);border-color:var(--red);transform:scale(1.25);}
+  @media(max-width:780px){#rail{display:none;}}
+  #brand{position:fixed;top:26px;left:5vw;z-index:150;font-family:var(--mono);font-size:12px;letter-spacing:.04em;mix-blend-mode:difference;color:#fff;}
+  #brand b{color:var(--red);}
+  .rev{opacity:0;transform:translateY(30px);transition:opacity .85s cubic-bezier(.16,.8,.3,1),transform .85s cubic-bezier(.16,.8,.3,1);}
+  .rev.in{opacity:1;transform:none;}
+  .rev.d1{transition-delay:.08s}.rev.d2{transition-delay:.16s}.rev.d3{transition-delay:.24s}
+  .rev.d4{transition-delay:.32s}.rev.d5{transition-delay:.40s}
+  section{position:relative;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 6vw;}
+  .pad{padding:13vh 0;}
+  .pad-s{padding:10vh 0;}
+  .light{background:var(--paper);color:var(--ink);}
+  .light .ssub{color:var(--muted-d);}
+  .chtag{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:14px;color:var(--red);margin-bottom:28px;}
+  .chtag .ln{width:40px;height:1px;background:var(--red);}
+  .chtag .no{color:var(--muted);}
+  .light .chtag .no{color:var(--muted-d);}
+  .shead{font-family:var(--disp);font-weight:700;font-size:clamp(1.9rem,4.5vw,3.8rem);line-height:1.02;text-transform:uppercase;}
+  .ssub{font-size:clamp(1rem,1.4vw,1.2rem);color:var(--muted);margin-top:18px;max-width:700px;line-height:1.6;}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    background:radial-gradient(120% 80% at 80% 10%,rgba(171,76,254,.14),transparent 55%),radial-gradient(90% 70% at 10% 90%,rgba(255,50,70,.12),transparent 50%),var(--black);overflow:hidden;}
+  .hero-glyphs{display:flex;gap:1.3vw;margin-bottom:38px;}
+  .g{position:relative;width:44px;height:44px;}
+  .g .sh{position:absolute;left:30%;top:30%;width:100%;height:100%;background:var(--plum-lt);opacity:.85;}
+  .g .fg{position:absolute;inset:0;background:var(--red);}
+  .g.circle .fg{border-radius:50%;}
+  .g.circle .fg::after{content:"";position:absolute;left:30%;top:30%;width:40%;height:40%;background:var(--black);border-radius:50%;}
+  .g.square .fg::after{content:"";position:absolute;left:28%;top:28%;width:44%;height:44%;background:var(--black);}
+  .g.diamond .fg{transform:rotate(45deg) scale(.74);}
+  .g.tri .fg{background:transparent;}
+  .g.tri .fg::after{content:"";position:absolute;left:0;bottom:0;width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:44px solid var(--red);}
+  .g.penta .fg{clip-path:polygon(50% 0,100% 38%,82% 100%,18% 100%,0 38%);}
+  #hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(2.8rem,8.5vw,8rem);line-height:.93;text-transform:uppercase;}
+  #hero h1 .em{color:var(--red);}
+  #hero .lede{font-size:clamp(1rem,1.8vw,1.5rem);color:#d8d2de;max-width:660px;margin-top:30px;line-height:1.5;}
+  #hero .meta{margin-top:42px;display:flex;gap:36px;flex-wrap:wrap;font-family:var(--mono);font-size:13px;color:var(--muted);}
+  #hero .meta b{color:#fff;font-weight:500;display:block;margin-top:3px;font-family:var(--sans);font-size:14px;}
+  .scrollcue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px;}
+  .scrollcue .arr{width:1px;height:30px;background:linear-gradient(var(--red),transparent);animation:drop 1.8s infinite;}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* THREE-COL CARDS */
+  .tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vw;margin-top:56px;}
+  .tcard{background:var(--white,#fff);display:flex;flex-direction:column;box-shadow:0 12px 36px rgba(20,16,24,.07);}
+  .tcard.dark{background:var(--black2);box-shadow:0 12px 36px rgba(0,0,0,.3);}
+  .tcard .tc-bar{height:6px;}
+  .tcard .tc-body{padding:28px 26px 32px;flex:1;}
+  .tcard .tc-head{font-family:var(--disp);font-weight:700;font-size:1.5rem;text-transform:uppercase;line-height:1.05;margin-bottom:16px;}
+  .tcard.dark .tc-head{color:#fff;}
+  .tcard .tc-pts{display:flex;flex-direction:column;gap:13px;}
+  .tcard .tc-pt{display:flex;align-items:flex-start;gap:11px;font-size:1.05rem;line-height:1.4;color:var(--muted-d);}
+  .tcard.dark .tc-pt{color:#b8b0c4;}
+  .tc-dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto;margin-top:5px;}
+  .callout{margin-top:42px;display:flex;align-items:center;gap:0;border-left:4px solid var(--purple);background:var(--cream);padding:20px 26px;font-size:1.1rem;line-height:1.55;}
+  .callout.dark{background:var(--black2);border-left-color:var(--red);color:#fff;}
+  .callout b{color:var(--purple);}
+  .callout.dark b{color:var(--red);}
+
+  /* TWO-COL JOURNEY */
+  .two-journey{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-d);margin-top:50px;}
+  .two-journey>div{padding:38px 36px;}
+  .jl{border-right:1px solid var(--line-d);}
+  .jlabel{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:6px 13px;color:#fff;display:inline-block;margin-bottom:4px;}
+  .jname{font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,2.8vw,2.2rem);text-transform:uppercase;line-height:1;margin:14px 0 4px;}
+  .jlogic{font-weight:600;font-size:1rem;margin-bottom:22px;}
+  .jlist{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .jlist li{display:flex;gap:12px;align-items:flex-start;font-size:1.05rem;line-height:1.4;}
+  .jbullet{width:12px;height:12px;border-radius:50%;flex:0 0 auto;margin-top:5px;}
+  @media(max-width:860px){.two-journey{grid-template-columns:1fr;}.jl{border-right:none;border-bottom:1px solid var(--line-d);}}
+
+  /* LEVER TABLE */
+  .lever-table{margin-top:48px;border:1px solid rgba(255,255,255,.15);}
+  .lrow{display:grid;grid-template-columns:1.2fr 1.8fr;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);}
+  .lrow:last-child{border-bottom:none;}
+  .lrow:hover{background:rgba(255,255,255,.07);}
+  .lrow .ls{padding:22px 26px;font-weight:600;font-size:1.05rem;color:#fff;border-right:1px solid rgba(255,255,255,.1);}
+  .lrow .ld{padding:22px 26px;font-size:1rem;color:#b8b0c4;line-height:1.45;}
+  @media(max-width:700px){.lrow{grid-template-columns:1fr;}.lrow .ls{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);}}
+
+  /* EX CARDS */
+  .ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+  .ex{background:var(--black2);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.16,.8,.3,1);}
+  .ex:hover{transform:translateY(-7px);}
+  .ex .cap{height:5px;}
+  .ex .body{padding:26px 24px 30px;display:flex;flex-direction:column;flex:1;}
+  .ex .tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:5px 11px;align-self:flex-start;color:#fff;margin-bottom:18px;}
+  .ex .ext{font-family:var(--disp);font-weight:700;font-size:1.75rem;text-transform:uppercase;line-height:1;}
+  .ex .exs{font-weight:600;font-size:.95rem;margin-top:9px;}
+  .ex .exd{font-size:.95rem;color:#c9c3d1;line-height:1.5;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);}
+  @media(max-width:800px){.ex-grid{grid-template-columns:1fr;}}
+
+  /* WHAT WE PROPOSE — 3 cols */
+  .propose-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);margin-top:50px;}
+  .pg-col{background:var(--paper);padding:36px 28px;}
+  .pg-head{font-family:var(--disp);font-weight:700;font-size:1.4rem;text-transform:uppercase;line-height:1.05;margin-bottom:18px;}
+  .pg-pts{display:flex;flex-direction:column;gap:12px;}
+  .pg-pt{display:flex;gap:10px;font-size:1rem;color:var(--muted-d);line-height:1.4;align-items:flex-start;}
+  .pg-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;margin-top:5px;}
+  @media(max-width:800px){.propose-grid{grid-template-columns:1fr;}}
+
+  /* PATH */
+  .path{margin-top:60px;position:relative;}
+  .path::before{content:"";position:absolute;left:30px;top:8px;bottom:8px;width:2px;background:var(--line-d);}
+  .step{position:relative;display:grid;grid-template-columns:60px 1fr;gap:30px;padding:0 0 46px;}
+  .step:last-child{padding-bottom:0;}
+  .sdot{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;font-size:1.8rem;color:#fff;z-index:2;position:relative;flex:0 0 auto;}
+  .sbody{padding-top:5px;}
+  .stime{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted-d);}
+  .sname{font-family:var(--disp);font-weight:700;font-size:clamp(1.4rem,2.6vw,2.1rem);text-transform:uppercase;line-height:1;margin:5px 0 5px;}
+  .stag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted-d);font-style:italic;display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .stag::before{content:"";display:block;width:20px;height:1px;background:currentColor;}
+  .sdesc{font-size:1.05rem;color:var(--muted-d);line-height:1.5;max-width:640px;}
+
+  /* TIMELINE */
+  .tl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px;}
+  .tlm .mh{font-family:var(--disp);font-weight:700;font-size:1.6rem;text-transform:uppercase;padding-bottom:12px;margin-bottom:18px;border-bottom:2px solid var(--line-d);}
+  .tlm .mh .mo{color:var(--red);font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;display:block;margin-bottom:2px;}
+  .tlcard{border-left:3px solid;background:#fff;padding:15px 18px;margin-bottom:12px;box-shadow:0 8px 22px rgba(20,16,24,.06);}
+  .tlcard .tp{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;}
+  .tlcard .tn{font-weight:700;font-size:1.05rem;margin:3px 0;}
+  .tlcard .tdd{font-size:.88rem;color:var(--muted-d);}
+  @media(max-width:800px){.tl-grid{grid-template-columns:1fr;}}
+
+  /* ASKS */
+  .asks{margin-top:48px;border-top:1px solid var(--line);}
+  .askrow{display:grid;grid-template-columns:1fr 2.5fr;gap:26px;padding:28px 0;border-bottom:1px solid var(--line);align-items:center;transition:padding-left .25s;}
+  .askrow:hover{padding-left:12px;}
+  .at{font-family:var(--disp);font-weight:700;font-size:clamp(1.2rem,2.2vw,1.75rem);text-transform:uppercase;line-height:1;}
+  .ad{font-size:1rem;color:#c9c3d1;line-height:1.5;}
+  @media(max-width:700px){.askrow{grid-template-columns:1fr;}.ad{display:none;}}
+
+  /* CLOSING */
+  #close{min-height:90vh;display:flex;flex-direction:column;justify-content:center;
+    background:radial-gradient(100% 70% at 50% 50%,rgba(255,50,70,.12),transparent 60%),var(--black);text-align:center;}
+  #close h2{font-family:var(--disp);font-weight:700;font-size:clamp(2.4rem,6.5vw,6rem);text-transform:uppercase;line-height:.95;}
+  #close h2 .em{color:var(--red);}
+  #close .cta{margin-top:32px;font-size:1.25rem;color:#d8d2de;}
+  #close .nxt{margin-top:28px;display:inline-flex;gap:14px;align-items:center;font-family:var(--mono);font-size:13px;letter-spacing:.06em;border:1px solid var(--line);padding:16px 28px;color:#fff;text-transform:uppercase;}
+  #close .nxt .em{color:var(--red);}
+  footer{padding:34px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--muted);flex-wrap:wrap;gap:10px;}
+  footer b{color:var(--red);}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="brand"><b>Accenture</b> Growth Strategy</div>
+<nav id="rail">
+  <a href="#hero"     ><span class="lab">Start</span>                      <span class="dot"></span></a>
+  <a href="#situation"><span class="lab">01 · The situation</span>         <span class="dot"></span></a>
+  <a href="#scope"    ><span class="lab">02 · What's in scope</span>       <span class="dot"></span></a>
+  <a href="#credibility"><span class="lab">03 · Credibility</span>         <span class="dot"></span></a>
+  <a href="#approach" ><span class="lab">04 · The approach</span>          <span class="dot"></span></a>
+  <a href="#kickoff"  ><span class="lab">05 · How we kick off</span>       <span class="dot"></span></a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-glyphs rev">
+      <div class="g circle"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g tri"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g square"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g diamond"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g penta"><div class="sh"></div><div class="fg"></div></div>
+    </div>
+    <h1 class="rev d1">Sales<br>of the <span class="em">Future</span></h1>
+    <p class="lede rev d2">An agentic workforce approach across the KUKA sales organisation — selling on capacity, speed and hit rate. Not on technology.</p>
+    <div class="meta rev d3">
+      <div>Prepared for<b>KUKA Robotics</b></div>
+      <div>By<b>Accenture Growth Strategy</b></div>
+      <div>Date<b>June 2026</b></div>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scroll</span><span class="arr"></span></div>
+</section>
+
+<!-- 01 SITUATION -->
+<section id="situation" class="light pad">
+  <div class="wrap">
+    <div class="chtag rev"><span class="no">01</span><span class="ln"></span>The situation</div>
+    <h2 class="shead rev d1">KUKA's sales organisation<br>is under pressure</h2>
+    <p class="ssub rev d2">Here is how we see the context — and why the opportunity is worth pursuing now.</p>
+    <div class="tri-grid">
+      <div class="tcard rev d2"><div class="tc-bar" style="background:var(--red)"></div><div class="tc-body"><div class="tc-head">Faster, leaner, tighter</div><div class="tc-pts"><div class="tc-pt">Quote cycles are shortening. Teams are being asked to do more with less. Margin pressure is real and growing.</div></div></div></div>
+      <div class="tcard rev d3"><div class="tc-bar" style="background:var(--red)"></div><div class="tc-body"><div class="tc-head">Complexity doesn't compress</div><div class="tc-pts"><div class="tc-pt">Robotics sales — long cycles, technical configuration, multi-stakeholder deals — cannot simply be automated away. The work is genuinely hard.</div></div></div></div>
+      <div class="tcard rev d4"><div class="tc-bar" style="background:var(--red)"></div><div class="tc-body"><div class="tc-head">The opportunity is precise</div><div class="tc-pts"><div class="tc-pt">The question is not 'how do we automate sales' — it is where exactly is human effort consumed by work that AI can handle better and faster.</div></div></div></div>
+    </div>
+    <div class="callout rev d4"><div><b>Our starting point:</b> make the sales work visible — volume, effort and cycle time per step. The lever becomes self-evident before any tool is discussed.</div></div>
+  </div>
+</section>
+
+<!-- 02 SCOPE -->
+<section id="scope" class="pad-s">
+  <div class="wrap">
+    <div class="chtag rev"><span class="no">02</span><span class="ln"></span>What's in scope — and what isn't</div>
+    <h2 class="shead rev d1">Two journeys — we propose<br>to start with the solution business</h2>
+    <p class="ssub rev d2">KUKA's sales spans two fundamentally different business types. Getting the scoping right means treating them separately from the start.</p>
+    <div class="two-journey rev d2">
+      <div class="jl">
+        <span class="jlabel" style="background:var(--red)">Standard / product business</span>
+        <div class="jname" style="color:var(--red)">Substitution</div>
+        <div class="jlogic" style="color:var(--red)">Agents do the work</div>
+        <ul class="jlist">
+          <li><span class="jbullet" style="background:var(--red)"></span>High volume, standardizable tasks</li>
+          <li><span class="jbullet" style="background:var(--red)"></span>Agents take over end-to-end — humans handle exceptions</li>
+          <li><span class="jbullet" style="background:var(--red)"></span>Human-in-the-loop</li>
+          <li><span class="jbullet" style="background:var(--red)"></span>Prize: capacity and speed</li>
+        </ul>
+      </div>
+      <div>
+        <span class="jlabel" style="background:var(--purple)">Solution / project business</span>
+        <div class="jname" style="color:var(--purple)">Augmentation</div>
+        <div class="jlogic" style="color:var(--purple)">Agents amplify people</div>
+        <ul class="jlist">
+          <li><span class="jbullet" style="background:var(--purple)"></span>Complex, consultative deals</li>
+          <li><span class="jbullet" style="background:var(--purple)"></span>Agents as co-pilot — faster, sharper preparation</li>
+          <li><span class="jbullet" style="background:var(--purple)"></span>Human-in-the-lead</li>
+          <li><span class="jbullet" style="background:var(--purple)"></span>Prize: quality and hit rate</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout rev d3"><div><b>Proposed entry point:</b> start with the solution business — this is where the co-pilot logic adds value fastest and the first use case is easiest to prove. Standard business follows in a second wave.</div></div>
+
+    <h2 class="shead rev" style="margin-top:10vh;">Inside the solution journey:<br>four concrete levers</h2>
+    <p class="ssub rev d1">Every step has a concrete AI lever. This is the working territory for the first use case.</p>
+    <div class="lever-table rev d2">
+      <div class="lrow"><div class="ls">Opportunity qualification</div><div class="ld">Fit scoring plus GenAI customer / industry research</div></div>
+      <div class="lrow"><div class="ls">Needs analysis & solution design</div><div class="ld">RAG on reference and project knowledge, requirements extraction</div></div>
+      <div class="lrow"><div class="ls">Proposal creation</div><div class="ld">GenAI draft from building blocks, automated costing skeleton</div></div>
+      <div class="lrow"><div class="ls">Buying center & negotiation</div><div class="ld">Call / objection preparation, pricing guardrails</div></div>
+    </div>
+    <div class="callout dark rev d3"><div><b>The standard business levers</b> (inquiry capture, CPQ / quoting, follow-up, cross-sell) are in scope but proposed as a second wave — after we have proven the solution business case.</div></div>
+  </div>
+</section>
+
+<!-- 03 CREDIBILITY -->
+<section id="credibility" class="light pad">
+  <div class="wrap">
+    <div class="chtag rev"><span class="no">03</span><span class="ln"></span>Credibility: what we bring</div>
+    <h2 class="shead rev d1">We are not starting<br>from a blank sheet</h2>
+    <p class="ssub rev d2">Three examples of what we would bring into the room from day one — across multiple engagements in industrial B2B and complex sales environments.</p>
+    <div class="ex-grid rev d2">
+      <div class="ex"><div class="cap" style="background:var(--red)"></div><div class="body"><span class="tag" style="background:var(--red)">BUILT FOR KUKA</span><div class="ext" style="color:var(--red)">Futures Radar</div><div class="exs" style="color:var(--red)">Live GenAI tool — KUKA Robotics</div><div class="exd">An Accenture-built tool already tailored to KUKA Robotics. Demonstrates live how GenAI surfaces market and competitive intelligence directly in a sales context. Ready to show from day one.</div></div></div>
+      <div class="ex"><div class="cap" style="background:var(--purple)"></div><div class="body"><span class="tag" style="background:var(--purple)">PROVEN ELSEWHERE</span><div class="ext" style="color:var(--purple)">Lead intelligence</div><div class="exs" style="color:var(--purple)">Analytical AI for qualification</div><div class="exd">A lead-scoring and prioritization engine Accenture developed for a comparable B2B sales environment. The logic is directly transferable to KUKA's qualification steps.</div></div></div>
+      <div class="ex"><div class="cap" style="background:var(--plum-lt)"></div><div class="body"><span class="tag" style="background:var(--plum)">PROVEN ELSEWHERE</span><div class="ext" style="color:var(--plum-lt)">Solution co-pilot</div><div class="exs" style="color:var(--plum-lt)">Augmentation in project sales</div><div class="exd">An Accenture approach applied in complex, consultative project sales. Your experts stay in the lead — the agent handles preparation, synthesis and knowledge retrieval.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 APPROACH -->
+<section id="approach" class="pad-s">
+  <div class="wrap">
+    <div class="chtag rev"><span class="no">04</span><span class="ln"></span>The approach</div>
+    <h2 class="shead rev d1">What we are proposing:<br>prove one use case, then scale</h2>
+    <p class="ssub rev d2">The agentic workforce is the target picture — but what we are selling is the proof. Start small, fast, and credibly.</p>
+    <div class="propose-grid rev d2">
+      <div class="pg-col"><div class="pg-head" style="color:var(--red)">Start small and sharp</div><div class="pg-pts"><div class="pg-pt"><span class="pg-dot" style="background:var(--red)"></span>One use case, selected on value × feasibility</div><div class="pg-pt"><span class="pg-dot" style="background:var(--red)"></span>Measurable against a clear baseline</div><div class="pg-pt"><span class="pg-dot" style="background:var(--red)"></span>Fast enough to show results before the summer</div></div></div>
+      <div class="pg-col"><div class="pg-head" style="color:var(--purple)">The agentic workforce is the horizon</div><div class="pg-pts"><div class="pg-pt"><span class="pg-dot" style="background:var(--purple)"></span>Not the starting point — the target picture</div><div class="pg-pt"><span class="pg-dot" style="background:var(--purple)"></span>A coordinated team of agents, each owning one sales task</div><div class="pg-pt"><span class="pg-dot" style="background:var(--purple)"></span>Built step by step, use case by use case</div></div></div>
+      <div class="pg-col"><div class="pg-head" style="color:var(--plum)">This is how we de-risk the decision</div><div class="pg-pts"><div class="pg-pt"><span class="pg-dot" style="background:var(--plum)"></span>Proof before commitment to scale</div><div class="pg-pt"><span class="pg-dot" style="background:var(--plum)"></span>Working mini-agent at Workshop 2 — not slides</div><div class="pg-pt"><span class="pg-dot" style="background:var(--plum)"></span>If it works, the next step is obvious</div></div></div>
+    </div>
+    <div class="callout dark rev d3"><div><b>The winning mechanism:</b> Workshop 2 delivers a real, working mini-agent — not a presentation. That is what turns interest into a decision.</div></div>
+
+    <h2 class="shead rev" style="margin-top:10vh;">A lean, two-workshop path<br>to a working proof</h2>
+    <p class="ssub rev d1">Fast, fact-based, with a "wow moment" as the closer. Five phases, June to August.</p>
+    <div class="path rev d2">
+      <div class="step"><div class="sdot" style="background:var(--plum)">1</div><div class="sbody"><div class="stime">1–2 weeks · lean</div><div class="sname">Framing & Baseline</div><div class="stag">Goal: fact base + pain points — not a large assessment</div><div class="sdesc">One-page journey per business type, rough effort and volume per step, 5–8 short interviews.</div></div></div>
+      <div class="step"><div class="sdot" style="background:var(--violet)">2</div><div class="sbody"><div class="stime">Half day</div><div class="sname">Workshop 1 — "Where the Lever Sits"</div><div class="stag">Output: prioritized lever longlist</div><div class="sdesc">Validate the journey, build the effort × standardizability heatmap, map levers per step.</div></div></div>
+      <div class="step"><div class="sdot" style="background:var(--purple)">3</div><div class="sbody"><div class="stime">Between workshops</div><div class="sname">Assessment & Use-Case Shortlist</div><div class="stag">Result: one proof candidate selected</div><div class="sdesc">Value (time, hit rate, scaling) × feasibility (data, systems, risk).</div></div></div>
+      <div class="step"><div class="sdot" style="background:var(--pink)">4</div><div class="sbody"><div class="stime">Half to full day</div><div class="sname">Workshop 2 — "Target Picture & Proof"</div><div class="stag">Output: commitment + next steps</div><div class="sdesc">Agentic workforce target picture + a <strong style="color:#fff">working mini-prototype</strong> of the proof use case.</div></div></div>
+      <div class="step"><div class="sdot" style="background:var(--red)">5</div><div class="sbody"><div class="stime">4–6 weeks</div><div class="sname">Proof / Pilot</div><div class="stag">Leading to the scaling decision</div><div class="sdesc">One use case running and measurable against baseline.</div></div></div>
+    </div>
+    <div class="callout dark rev"><div><b>This is the core project we propose.</b> The agentic workforce is the target picture — but what we are selling is the proof: one use case, running and measurable, by end of August.</div></div>
+  </div>
+</section>
+
+<!-- 05 KICKOFF -->
+<section id="kickoff" class="light pad">
+  <div class="wrap">
+    <div class="chtag rev"><span class="no">05</span><span class="ln"></span>How we kick off</div>
+    <h2 class="shead rev d1">We can start in June —<br>proof by end of August</h2>
+    <p class="ssub rev d2">First working proof within ~8 weeks of kickoff. Workshop 1 is the only thing standing between today and momentum.</p>
+    <div class="tl-grid rev d2">
+      <div class="tlm">
+        <div class="mh"><span class="mo">Month 01</span>June</div>
+        <div class="tlcard" style="border-color:var(--plum)"><div class="tp" style="color:var(--plum)">Phase 1</div><div class="tn">Framing & Baseline</div><div class="tdd">Journey map, 5–8 interviews, effort & volume per step</div></div>
+        <div class="tlcard" style="border-color:var(--violet)"><div class="tp" style="color:var(--violet)">Phase 2</div><div class="tn">Workshop 1 — Lever Mapping</div><div class="tdd">Effort × standardizability heatmap, lever longlist</div></div>
+      </div>
+      <div class="tlm">
+        <div class="mh"><span class="mo">Month 02</span>July</div>
+        <div class="tlcard" style="border-color:var(--purple)"><div class="tp" style="color:var(--purple)">Phase 3</div><div class="tn">Use-Case Shortlist</div><div class="tdd">One proof candidate selected on value × feasibility</div></div>
+        <div class="tlcard" style="border-color:var(--pink)"><div class="tp" style="color:var(--pink)">Phase 4</div><div class="tn">Workshop 2 — Target Picture</div><div class="tdd">Agentic workforce vision + working mini-prototype</div></div>
+      </div>
+      <div class="tlm">
+        <div class="mh"><span class="mo">Month 03</span>August</div>
+        <div class="tlcard" style="border-color:var(--red)"><div class="tp" style="color:var(--red)">Phase 5</div><div class="tn">Proof / Pilot</div><div class="tdd">One use case live, measurable → scaling decision</div></div>
+      </div>
+    </div>
+
+    <h2 class="shead rev" style="margin-top:10vh;">Four things we need<br>from your team to begin</h2>
+    <p class="ssub rev d1">A light footprint — enough to make the framing phase and Workshop 1 sharp and fact-based.</p>
+    <div class="asks rev d2">
+      <div class="askrow"><div class="at" style="color:var(--ink)">An executive sponsor</div><div class="ad">One senior owner on your side to set direction and unblock decisions throughout.</div></div>
+      <div class="askrow"><div class="at" style="color:var(--ink)">5–8 interview partners</div><div class="ad">Sales colleagues across both journeys — ~45 min each for the framing phase.</div></div>
+      <div class="askrow"><div class="at" style="color:var(--ink)">A look at the current journey</div><div class="ad">How inquiries, quotes, follow-ups and orders flow today — tools, steps, volume and cycle times.</div></div>
+      <div class="askrow"><div class="at" style="color:var(--ink)">Two workshop dates</div><div class="ad">Half-day slots for Workshop 1 and Workshop 2 — we will align across LA / GER time zones.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section id="close">
+  <div class="wrap" style="width:100%;">
+    <div class="hero-glyphs rev" style="justify-content:center;margin-bottom:36px;">
+      <div class="g penta"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g circle"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g tri"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g square"><div class="sh"></div><div class="fg"></div></div>
+      <div class="g diamond"><div class="sh"></div><div class="fg"></div></div>
+    </div>
+    <h2 class="rev d1">Let's build it<br><span class="em">together</span></h2>
+    <p class="cta rev d2">Questions &amp; next steps</p>
+    <div class="rev d3"><span class="nxt"><span class="em">Next step →</span>&nbsp;&nbsp;Confirm a sponsor and a Workshop 1 date</span></div>
+  </div>
+</section>
+
+<footer>
+  <span><b>Accenture</b> Growth Strategy · Prepared for KUKA Robotics</span>
+  <span>Copyright © 2026 Accenture. All rights reserved.</span>
+</footer>
+
+<script>
+  const bar=document.getElementById("bar");
+  addEventListener("scroll",()=>{
+    const h=document.documentElement;
+    bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";
+  },{passive:true});
+
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+  },{threshold:.13,rootMargin:"0px 0px -5% 0px"});
+  document.querySelectorAll(".rev").forEach(el=>io.observe(el));
+
+  const rail=[...document.querySelectorAll("#rail a")];
+  const secs=rail.map(a=>document.querySelector(a.getAttribute("href")));
+  function updateRail(){
+    const sy=window.scrollY;
+    let active=secs[0];
+    for(const s of secs){if(s&&s.offsetTop-80<=sy)active=s;}
+    if(active){const id="#"+active.id;rail.forEach(a=>a.classList.toggle("on",a.getAttribute("href")===id));}
+  }
+  addEventListener("scroll",updateRail,{passive:true});
+  updateRail();
+</script>
+</body>
+</html>
