@@ -29,7 +29,6 @@
     min-height: 100vh;
   }
 
-  /*  HEADER  */
   header {
     background: var(--kuka-dark);
     color: white;
@@ -47,75 +46,22 @@
     max-width: 1600px;
     margin: 0 auto;
   }
-  .logo-area {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .kuka-logo {
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    color: var(--kuka-orange);
-    text-transform: uppercase;
-  }
-  .workshop-title {
-    font-size: 13px;
-    color: var(--kuka-light);
-    letter-spacing: 1px;
-    border-left: 2px solid var(--kuka-orange);
-    padding-left: 16px;
-    line-height: 1.4;
-  }
-  .workshop-title strong {
-    display: block;
-    color: white;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-  }
+  .logo-area { display: flex; align-items: center; gap: 16px; }
+  .kuka-logo { font-size: 28px; font-weight: 900; letter-spacing: 4px; color: var(--kuka-orange); text-transform: uppercase; }
+  .workshop-title { font-size: 13px; color: var(--kuka-light); letter-spacing: 1px; border-left: 2px solid var(--kuka-orange); padding-left: 16px; line-height: 1.4; }
+  .workshop-title strong { display: block; color: white; font-size: 15px; letter-spacing: 0.5px; }
 
-  /* Progress indicator */
-  .progress-bar {
-    display: flex;
-    gap: 0;
-    background: var(--kuka-charcoal);
-    border-top: 1px solid #3a3a3a;
-  }
-  .progress-step {
-    flex: 1;
-    text-align: center;
-    padding: 8px 4px;
-    font-size: 11px;
-    color: var(--kuka-light);
-    cursor: pointer;
-    transition: all 0.2s;
-    border-right: 1px solid #3a3a3a;
-    letter-spacing: 0.5px;
-  }
+  .progress-bar { display: flex; background: var(--kuka-charcoal); border-top: 1px solid #3a3a3a; }
+  .progress-step { flex: 1; text-align: center; padding: 8px 4px; font-size: 11px; color: var(--kuka-light); cursor: pointer; transition: all 0.2s; border-right: 1px solid #3a3a3a; letter-spacing: 0.5px; }
   .progress-step:last-child { border-right: none; }
-  .progress-step.active {
-    background: var(--kuka-orange);
-    color: white;
-    font-weight: 600;
-  }
-  .progress-step.done {
-    background: rgba(232,56,13,0.2);
-    color: var(--kuka-orange-light);
-  }
+  .progress-step.active { background: var(--kuka-orange); color: white; font-weight: 600; }
+  .progress-step.done { background: rgba(232,56,13,0.2); color: var(--kuka-orange-light); }
   .progress-step:hover:not(.active) { background: rgba(255,255,255,0.05); }
 
-  /*  MAIN LAYOUT  */
-  .container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 28px 32px;
-  }
-
-  /*  SCREENS  */
+  .container { max-width: 1600px; margin: 0 auto; padding: 28px 32px; }
   .screen { display: none; }
   .screen.active { display: block; }
 
-  /*  INTRO SCREEN  */
   .intro-hero {
     background: var(--kuka-dark);
     border-radius: 12px;
@@ -129,360 +75,80 @@
     overflow: hidden;
     margin-bottom: 28px;
   }
-  .intro-hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 320px; height: 320px;
-    background: radial-gradient(circle, rgba(232,56,13,0.3) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .intro-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -40px;
-    width: 240px; height: 240px;
-    background: radial-gradient(circle, rgba(232,56,13,0.1) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .intro-tag {
-    display: inline-block;
-    background: var(--kuka-orange);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 5px 14px;
-    border-radius: 3px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-  .intro-hero h1 {
-    font-size: 38px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    letter-spacing: -0.5px;
-  }
+  .intro-hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(232,56,13,0.3) 0%, transparent 70%); pointer-events: none; }
+  .intro-hero::after { content: ''; position: absolute; bottom: -80px; left: -40px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(232,56,13,0.1) 0%, transparent 70%); pointer-events: none; }
+  .intro-tag { display: inline-block; background: var(--kuka-orange); color: white; font-size: 11px; font-weight: 700; letter-spacing: 2px; padding: 5px 14px; border-radius: 3px; margin-bottom: 20px; text-transform: uppercase; }
+  .intro-hero h1 { font-size: 38px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
   .intro-hero h1 span { color: var(--kuka-orange); }
-  .intro-hero p {
-    font-size: 16px;
-    color: #aaa;
-    line-height: 1.7;
-    margin-bottom: 28px;
-  }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--kuka-orange);
-    color: white;
-    border: none;
-    padding: 15px 32px;
-    font-size: 15px;
-    font-weight: 700;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
+  .intro-hero p { font-size: 16px; color: #aaa; line-height: 1.7; margin-bottom: 28px; }
+
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--kuka-orange); color: white; border: none; padding: 15px 32px; font-size: 15px; font-weight: 700; border-radius: 6px; cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px; text-transform: uppercase; }
   .btn-primary:hover { background: var(--kuka-orange-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,56,13,0.4); }
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255,255,255,0.3);
-    padding: 13px 28px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-left: 12px;
-  }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: white; border: 2px solid rgba(255,255,255,0.3); padding: 13px 28px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: all 0.2s; margin-left: 12px; }
   .btn-secondary:hover { border-color: var(--kuka-orange); color: var(--kuka-orange); }
 
-  .agenda-card {
-    background: var(--kuka-charcoal);
-    border-radius: 10px;
-    padding: 28px;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .agenda-card h3 {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--kuka-orange);
-    margin-bottom: 20px;
-  }
-  .agenda-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
+  .agenda-card { background: var(--kuka-charcoal); border-radius: 10px; padding: 28px; border: 1px solid rgba(255,255,255,0.08); }
+  .agenda-card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--kuka-orange); margin-bottom: 20px; }
+  .agenda-item { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .agenda-item:last-child { border-bottom: none; }
-  .agenda-num {
-    background: var(--kuka-orange);
-    color: white;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
+  .agenda-num { background: var(--kuka-orange); color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
   .agenda-text { flex: 1; }
   .agenda-text strong { display: block; font-size: 14px; color: white; margin-bottom: 2px; }
   .agenda-text span { font-size: 12px; color: var(--kuka-light); }
 
-  .intro-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  .intro-card {
-    background: white;
-    border-radius: 10px;
-    padding: 24px;
-    border: 1px solid #e8e8e8;
-    border-top: 3px solid var(--kuka-orange);
-  }
-  .intro-card .ic-icon { font-size: 28px; margin-bottom: 12px; }
+  .intro-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+  .intro-card { background: white; border-radius: 10px; padding: 24px; border: 1px solid #e8e8e8; border-top: 3px solid var(--kuka-orange); }
   .intro-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--kuka-dark); }
   .intro-card p { font-size: 13px; color: var(--kuka-gray); line-height: 1.6; }
 
-  /*  STEP HEADER  */
-  .step-header {
-    background: white;
-    border-radius: 10px;
-    padding: 24px 28px;
-    margin-bottom: 20px;
-    border: 1px solid #e8e8e8;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .step-badge {
-    background: var(--kuka-orange);
-    color: white;
-    width: 44px; height: 44px;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    font-weight: 800;
-    flex-shrink: 0;
-  }
+  .step-header { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; border: 1px solid #e8e8e8; display: flex; align-items: center; gap: 20px; }
+  .step-badge { background: var(--kuka-orange); color: white; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
   .step-info h2 { font-size: 20px; font-weight: 700; color: var(--kuka-dark); }
   .step-info p { font-size: 14px; color: var(--kuka-gray); margin-top: 4px; line-height: 1.5; }
 
-  /*  QUESTION CARD  */
-  .question-card {
-    background: linear-gradient(135deg, var(--kuka-dark) 0%, var(--kuka-charcoal) 100%);
-    border-radius: 10px;
-    padding: 24px 28px;
-    color: white;
-    margin-bottom: 20px;
-    border-left: 4px solid var(--kuka-orange);
-    position: relative;
-  }
-  .question-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--kuka-orange);
-    margin-bottom: 10px;
-  }
+  .question-card { background: linear-gradient(135deg, var(--kuka-dark) 0%, var(--kuka-charcoal) 100%); border-radius: 10px; padding: 24px 28px; color: white; margin-bottom: 20px; border-left: 4px solid var(--kuka-orange); }
+  .question-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--kuka-orange); margin-bottom: 10px; }
   .question-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
   .question-card p { font-size: 13px; color: #aaa; line-height: 1.6; }
-  .question-hints {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
-  .hint-chip {
-    background: rgba(232,56,13,0.2);
-    border: 1px solid rgba(232,56,13,0.4);
-    color: #FF9B80;
-    font-size: 12px;
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
+  .question-hints { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .hint-chip { background: rgba(232,56,13,0.2); border: 1px solid rgba(232,56,13,0.4); color: #FF9B80; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
 
-  /*  DOMAIN GRID  */
-  .domains-layout {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  .domains-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .domain-btn {
-    background: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 14px 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .domains-layout { display: grid; grid-template-columns: 220px 1fr; gap: 20px; margin-bottom: 20px; }
+  .domains-sidebar { display: flex; flex-direction: column; gap: 10px; }
+  .domain-btn { background: white; border: 2px solid #e0e0e0; border-radius: 8px; padding: 14px 16px; cursor: pointer; transition: all 0.2s; text-align: left; display: flex; align-items: center; gap: 10px; }
   .domain-btn:hover { border-color: var(--kuka-orange); box-shadow: 0 2px 8px rgba(232,56,13,0.15); }
-  .domain-btn.active {
-    background: var(--kuka-orange);
-    border-color: var(--kuka-orange);
-    color: white;
-    box-shadow: 0 4px 16px rgba(232,56,13,0.35);
-  }
-  .domain-btn-icon { font-size: 18px; flex-shrink: 0; }
+  .domain-btn.active { background: var(--kuka-orange); border-color: var(--kuka-orange); color: white; box-shadow: 0 4px 16px rgba(232,56,13,0.35); }
   .domain-btn-label { font-size: 13px; font-weight: 600; line-height: 1.3; }
-  .domain-btn-count {
-    margin-left: auto;
-    background: rgba(0,0,0,0.1);
-    color: inherit;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 10px;
-    min-width: 20px;
-    text-align: center;
-  }
+  .domain-btn-count { margin-left: auto; background: rgba(0,0,0,0.1); color: inherit; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 10px; min-width: 20px; text-align: center; }
   .domain-btn.active .domain-btn-count { background: rgba(255,255,255,0.25); }
 
-  /* Focus areas grid */
-  .focus-areas-panel {
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #e8e8e8;
-    padding: 24px;
-  }
-  .domain-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid var(--kuka-bg);
-  }
+  .focus-areas-panel { background: white; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; }
+  .domain-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid var(--kuka-bg); }
   .domain-title { font-size: 18px; font-weight: 700; color: var(--kuka-dark); }
   .domain-desc { font-size: 13px; color: var(--kuka-gray); margin-top: 4px; }
-  .selection-hint {
-    font-size: 12px;
-    color: var(--kuka-mid);
-    background: var(--kuka-bg);
-    padding: 6px 12px;
-    border-radius: 6px;
-  }
+  .selection-hint { font-size: 12px; color: var(--kuka-mid); background: var(--kuka-bg); padding: 6px 12px; border-radius: 6px; }
 
-  .focus-areas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-  }
-  .focus-card {
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: white;
-    position: relative;
-  }
-  .focus-card:hover {
-    border-color: var(--kuka-orange-light);
-    box-shadow: 0 4px 14px rgba(232,56,13,0.12);
-    transform: translateY(-1px);
-  }
-  .focus-card.selected {
-    border-color: var(--kuka-orange);
-    background: #FFF3F0;
-    box-shadow: 0 4px 16px rgba(232,56,13,0.2);
-  }
-  .focus-card.shortlisted {
-    border-color: var(--kuka-orange-dark);
-    background: #FFE8E2;
-    box-shadow: 0 4px 16px rgba(232,56,13,0.3);
-  }
-  .focus-card-check {
-    position: absolute;
-    top: 10px; right: 10px;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 2px solid #d0d0d0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    transition: all 0.2s;
-    background: white;
-  }
-  .focus-card.selected .focus-card-check,
-  .focus-card.shortlisted .focus-card-check {
-    background: var(--kuka-orange);
-    border-color: var(--kuka-orange);
-    color: white;
-  }
-  .focus-card-icon { font-size: 22px; margin-bottom: 8px; }
+  .focus-areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .focus-card { border: 2px solid #e0e0e0; border-radius: 10px; padding: 16px; cursor: pointer; transition: all 0.2s; background: white; position: relative; }
+  .focus-card:hover { border-color: var(--kuka-orange-light); box-shadow: 0 4px 14px rgba(232,56,13,0.12); transform: translateY(-1px); }
+  .focus-card.selected { border-color: var(--kuka-orange); background: #FFF3F0; box-shadow: 0 4px 16px rgba(232,56,13,0.2); }
+  .focus-card-check { position: absolute; top: 10px; right: 10px; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #d0d0d0; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.2s; background: white; }
+  .focus-card.selected .focus-card-check { background: var(--kuka-orange); border-color: var(--kuka-orange); color: white; }
   .focus-card-name { font-size: 13px; font-weight: 700; color: var(--kuka-dark); line-height: 1.3; margin-bottom: 6px; }
   .focus-card-desc { font-size: 11px; color: var(--kuka-mid); line-height: 1.5; }
   .focus-card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-  .focus-tag {
-    font-size: 10px;
-    background: var(--kuka-bg);
-    color: var(--kuka-gray);
-    padding: 2px 7px;
-    border-radius: 10px;
-  }
+  .focus-tag { font-size: 10px; background: var(--kuka-bg); color: var(--kuka-gray); padding: 2px 7px; border-radius: 10px; }
   .focus-card.selected .focus-tag { background: rgba(232,56,13,0.1); color: var(--kuka-orange-dark); }
 
-  /*  PRIORITY RATING  */
-  .priority-section {
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #e8e8e8;
-    padding: 24px;
-    margin-bottom: 20px;
-  }
+  .priority-section { background: white; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; margin-bottom: 20px; }
   .priority-section h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
   .priority-section p { font-size: 13px; color: var(--kuka-gray); margin-bottom: 20px; }
-  .priority-item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid #f0f0f0;
-  }
+  .priority-item { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
   .priority-item:last-child { border-bottom: none; }
   .priority-item-name { font-size: 14px; font-weight: 600; }
   .priority-item-domain { font-size: 11px; color: var(--kuka-mid); margin-top: 2px; }
-  .rating-stars {
-    display: flex;
-    gap: 4px;
-  }
-  .star {
-    width: 32px; height: 32px;
-    border: 2px solid #d0d0d0;
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.15s;
-    font-size: 14px;
-    font-weight: 700;
-    color: #ccc;
-    background: white;
-  }
+  .rating-stars { display: flex; gap: 4px; }
+  .star { width: 32px; height: 32px; border: 2px solid #d0d0d0; border-radius: 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; font-size: 14px; font-weight: 700; color: #ccc; background: white; }
   .star:hover, .star.lit { background: var(--kuka-orange); border-color: var(--kuka-orange); color: white; }
   .star[data-v="1"].lit { background: #ff6b6b; border-color: #ff6b6b; }
   .star[data-v="2"].lit { background: #ffa94d; border-color: #ffa94d; }
@@ -490,469 +156,107 @@
   .star[data-v="4"].lit { background: #e8380d; border-color: #e8380d; }
   .star[data-v="5"].lit { background: #c02d09; border-color: #c02d09; }
 
-  /*  NOTES  */
-  .notes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-  .note-card {
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #e8e8e8;
-    padding: 20px;
-    border-top: 3px solid var(--kuka-orange);
-  }
+  .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .note-card { background: white; border-radius: 10px; border: 1px solid #e8e8e8; padding: 20px; border-top: 3px solid var(--kuka-orange); }
   .note-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
   .note-card .note-domain { font-size: 11px; color: var(--kuka-mid); margin-bottom: 10px; }
-  .note-card textarea {
-    width: 100%;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 10px;
-    font-size: 13px;
-    font-family: inherit;
-    resize: vertical;
-    min-height: 80px;
-    color: var(--kuka-dark);
-    transition: border-color 0.2s;
-    outline: none;
-  }
+  .note-card textarea { width: 100%; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; font-size: 13px; font-family: inherit; resize: vertical; min-height: 80px; color: var(--kuka-dark); transition: border-color 0.2s; outline: none; }
   .note-card textarea:focus { border-color: var(--kuka-orange); }
   .note-card textarea::placeholder { color: #bbb; }
 
-  /*  USE CASES  */
-  .use-case-section {
-    margin-bottom: 24px;
-  }
-  .use-case-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .use-case-domain-badge {
-    background: var(--kuka-dark);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
-  }
-  .use-case-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 12px;
-  }
-  .use-case-card {
-    background: white;
-    border-radius: 10px;
-    border: 2px solid #e8e8e8;
-    padding: 18px;
-    cursor: pointer;
-    transition: all 0.2s;
-    position: relative;
-  }
+  .use-case-section { margin-bottom: 24px; }
+  .use-case-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .use-case-domain-badge { background: var(--kuka-dark); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; }
+  .use-case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .use-case-card { background: white; border-radius: 10px; border: 2px solid #e8e8e8; padding: 18px; cursor: pointer; transition: all 0.2s; position: relative; }
   .use-case-card:hover { border-color: var(--kuka-orange-light); box-shadow: 0 4px 14px rgba(232,56,13,0.12); }
-  .use-case-card.selected {
-    border-color: var(--kuka-orange);
-    background: #FFF3F0;
-  }
-  .use-case-card .uc-check {
-    position: absolute;
-    top: 14px; right: 14px;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 2px solid #d0d0d0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    background: white;
-    transition: all 0.2s;
-  }
+  .use-case-card.selected { border-color: var(--kuka-orange); background: #FFF3F0; }
+  .use-case-card .uc-check { position: absolute; top: 14px; right: 14px; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #d0d0d0; display: flex; align-items: center; justify-content: center; font-size: 11px; background: white; transition: all 0.2s; }
   .use-case-card.selected .uc-check { background: var(--kuka-orange); border-color: var(--kuka-orange); color: white; }
-  .uc-icon { font-size: 24px; margin-bottom: 10px; }
   .uc-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; padding-right: 28px; line-height: 1.3; }
   .uc-desc { font-size: 12px; color: var(--kuka-gray); line-height: 1.5; margin-bottom: 10px; }
-  .uc-value {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 12px;
-  }
+  .uc-value { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
   .uc-value.high { background: #ffede8; color: var(--kuka-orange-dark); }
   .uc-value.medium { background: #fff3e0; color: #e67e00; }
   .uc-value.low { background: #f0f0f0; color: var(--kuka-gray); }
 
-  /*  RESULTS SCREEN  */
-  .results-hero {
-    background: var(--kuka-dark);
-    border-radius: 12px;
-    padding: 36px 40px;
-    color: white;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
+  .results-hero { background: var(--kuka-dark); border-radius: 12px; padding: 36px 40px; color: white; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .results-hero h2 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
   .results-hero p { font-size: 14px; color: #aaa; }
-  .results-stats {
-    display: flex;
-    gap: 24px;
-    flex-shrink: 0;
-  }
-  .result-stat {
-    text-align: center;
-    background: rgba(255,255,255,0.06);
-    border-radius: 10px;
-    padding: 16px 24px;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
+  .results-stats { display: flex; gap: 24px; flex-shrink: 0; }
+  .result-stat { text-align: center; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 16px 24px; border: 1px solid rgba(255,255,255,0.1); }
   .result-stat .rs-num { font-size: 36px; font-weight: 900; color: var(--kuka-orange); line-height: 1; }
   .result-stat .rs-label { font-size: 11px; color: var(--kuka-light); margin-top: 4px; letter-spacing: 0.5px; }
 
-  .results-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 24px;
-  }
-  .result-panel {
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #e8e8e8;
-    overflow: hidden;
-  }
-  .result-panel-header {
-    background: var(--kuka-dark);
-    color: white;
-    padding: 16px 20px;
-    font-size: 14px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .result-panel-header .rph-icon { font-size: 18px; }
+  .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .result-panel { background: white; border-radius: 10px; border: 1px solid #e8e8e8; overflow: hidden; }
+  .result-panel-header { background: var(--kuka-dark); color: white; padding: 16px 20px; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
   .result-panel-body { padding: 20px; }
-  .shortlist-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #f5f5f5;
-  }
+  .shortlist-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
   .shortlist-item:last-child { border-bottom: none; }
-  .si-rank {
-    width: 28px; height: 28px;
-    background: var(--kuka-orange);
-    color: white;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
+  .si-rank { width: 28px; height: 28px; background: var(--kuka-orange); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
   .si-info { flex: 1; }
   .si-name { font-size: 14px; font-weight: 700; }
   .si-domain { font-size: 11px; color: var(--kuka-mid); margin-top: 2px; }
   .si-rating { display: flex; gap: 2px; margin-top: 4px; }
-  .si-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #e0e0e0;
-  }
+  .si-dot { width: 8px; height: 8px; border-radius: 50%; background: #e0e0e0; }
   .si-dot.filled { background: var(--kuka-orange); }
 
-  .uc-shortlist-item {
-    background: #FFF3F0;
-    border: 1px solid rgba(232,56,13,0.2);
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 8px;
-  }
+  .uc-shortlist-item { background: #FFF3F0; border: 1px solid rgba(232,56,13,0.2); border-radius: 8px; padding: 12px; margin-bottom: 8px; }
   .uc-shortlist-item:last-child { margin-bottom: 0; }
   .ucsi-title { font-size: 13px; font-weight: 700; }
   .ucsi-area { font-size: 11px; color: var(--kuka-mid); margin-top: 2px; }
   .ucsi-value { margin-top: 6px; }
 
-  .next-steps {
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #e8e8e8;
-    padding: 24px;
-    margin-bottom: 20px;
-  }
-  .next-steps h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .ns-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .ns-card {
-    background: var(--kuka-bg);
-    border-radius: 8px;
-    padding: 18px;
-    border-left: 3px solid var(--kuka-orange);
-  }
+  .next-steps { background: white; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px; margin-bottom: 20px; }
+  .next-steps h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+  .ns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ns-card { background: var(--kuka-bg); border-radius: 8px; padding: 18px; border-left: 3px solid var(--kuka-orange); }
   .ns-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
   .ns-card p { font-size: 12px; color: var(--kuka-gray); line-height: 1.6; }
-  .ns-card .ns-timeframe {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--kuka-orange);
-    background: rgba(232,56,13,0.08);
-    padding: 3px 10px;
-    border-radius: 10px;
-  }
+  .ns-card .ns-timeframe { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 600; color: var(--kuka-orange); background: rgba(232,56,13,0.08); padding: 3px 10px; border-radius: 10px; }
 
-  .export-bar {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .btn-export {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--kuka-orange);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .export-bar { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-export { display: inline-flex; align-items: center; gap: 8px; background: var(--kuka-orange); color: white; border: none; padding: 12px 24px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
   .btn-export:hover { background: var(--kuka-orange-dark); }
-  .btn-export.outline {
-    background: transparent;
-    border: 2px solid var(--kuka-orange);
-    color: var(--kuka-orange);
-  }
+  .btn-export.outline { background: transparent; border: 2px solid var(--kuka-orange); color: var(--kuka-orange); }
   .btn-export.outline:hover { background: var(--kuka-orange); color: white; }
 
-  /*  NAV BUTTONS  */
-  .nav-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid #e8e8e8;
-  }
-  .btn-nav {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s;
-  }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid #e8e8e8; }
+  .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
   .btn-nav.back { background: white; color: var(--kuka-gray); border: 2px solid #d0d0d0; }
   .btn-nav.back:hover { border-color: var(--kuka-orange); color: var(--kuka-orange); }
   .btn-nav.forward { background: var(--kuka-orange); color: white; }
   .btn-nav.forward:hover { background: var(--kuka-orange-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(232,56,13,0.3); }
-  .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
 
-  /*  SELECTION COUNTER  */
-  .selection-counter {
-    background: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
+  .selection-counter { background: white; border: 2px solid #e0e0e0; border-radius: 10px; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
   .sc-label { font-size: 13px; color: var(--kuka-gray); }
   .sc-count { font-size: 24px; font-weight: 900; color: var(--kuka-orange); }
   .sc-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-  .sc-pill {
-    background: #FFF3F0;
-    border: 1px solid rgba(232,56,13,0.3);
-    color: var(--kuka-orange-dark);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .sc-pill button {
-    background: none; border: none; cursor: pointer;
-    color: var(--kuka-orange); font-size: 14px; line-height: 1; padding: 0;
-    font-weight: 700;
-  }
+  .sc-pill { background: #FFF3F0; border: 1px solid rgba(232,56,13,0.3); color: var(--kuka-orange-dark); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+  .sc-pill button { background: none; border: none; cursor: pointer; color: var(--kuka-orange); font-size: 14px; line-height: 1; padding: 0; font-weight: 700; }
 
-  /*  MISC  */
-  .section-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--kuka-mid);
-    margin-bottom: 10px;
-  }
-  .divider { height: 1px; background: #e8e8e8; margin: 24px 0; }
-  .empty-state {
-    text-align: center;
-    padding: 48px 24px;
-    color: var(--kuka-mid);
-  }
-  .empty-state .es-icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-state { text-align: center; padding: 48px 24px; color: var(--kuka-mid); }
   .empty-state p { font-size: 14px; }
 
-  .tooltip {
-    position: relative;
-    display: inline-block;
-  }
-  .tooltip-text {
-    visibility: hidden;
-    position: absolute;
-    bottom: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--kuka-dark);
-    color: white;
-    font-size: 12px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    white-space: nowrap;
-    z-index: 200;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-  .tooltip:hover .tooltip-text { visibility: visible; }
-
-  /* ─── VALUE / EFFORT MATRIX ─── */
-  .matrix-wrap {
-    display: flex;
-    align-items: stretch;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .matrix-y-label {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--kuka-gray);
-    text-align: center;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    flex-shrink: 0;
-  }
-  .matrix-grid-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .matrix-y-ticks {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 4px;
-    position: absolute;
-    left: -44px;
-    top: 0; bottom: 0;
-  }
-  .matrix-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, minmax(100px, 1fr));
-    gap: 4px;
-    position: relative;
-  }
-  .matrix-y-ticks {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 0;
-  }
-  .matrix-tick {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--kuka-mid);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .matrix-x-ticks {
-    display: flex;
-    gap: 4px;
-    margin-top: 4px;
-  }
+  .matrix-wrap { display: flex; align-items: stretch; gap: 8px; margin-bottom: 16px; }
+  .matrix-y-label { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 12px; font-weight: 700; color: var(--kuka-gray); text-align: center; letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
+  .matrix-grid-area { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .matrix-y-ticks { display: flex; flex-direction: column; gap: 4px; }
+  .matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, minmax(100px, 1fr)); gap: 4px; }
+  .matrix-tick { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: var(--kuka-mid); text-transform: uppercase; letter-spacing: 0.5px; }
+  .matrix-x-ticks { display: flex; gap: 4px; margin-top: 4px; }
   .matrix-x-ticks .matrix-tick { flex: 1; }
-  .matrix-x-label {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--kuka-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 6px;
-  }
-  .matrix-cell {
-    border-radius: 8px;
-    padding: 10px;
-    min-height: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    align-content: flex-start;
-  }
+  .matrix-x-label { text-align: center; font-size: 12px; font-weight: 700; color: var(--kuka-gray); letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; }
+  .matrix-cell { border-radius: 8px; padding: 10px; min-height: 100px; display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; }
   .zone-green  { background: #f0faf4; border: 1px solid #b6dfc8; }
   .zone-yellow { background: #fffbf0; border: 1px solid #f0dfa0; }
   .zone-red    { background: #fff5f3; border: 1px solid #f0c4bc; }
-  .matrix-chip {
-    background: var(--kuka-dark);
-    color: white;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 9px;
-    border-radius: 4px;
-    cursor: default;
-    line-height: 1.3;
-    max-width: 100%;
-    white-space: normal;
-    word-break: break-word;
-  }
+  .matrix-chip { background: var(--kuka-dark); color: white; font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 4px; cursor: default; line-height: 1.3; max-width: 100%; white-space: normal; word-break: break-word; }
   .matrix-chip:hover { background: var(--kuka-orange); }
-  .matrix-legend {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-end;
-  }
-  .matrix-legend-item {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 12px;
-    color: var(--kuka-gray);
-    font-weight: 600;
-  }
-  .ml-dot {
-    width: 14px; height: 14px;
-    border-radius: 3px;
-  }
+  .matrix-legend { display: flex; gap: 20px; justify-content: flex-end; }
+  .matrix-legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--kuka-gray); font-weight: 600; }
+  .ml-dot { width: 14px; height: 14px; border-radius: 3px; }
   .ml-dot.zone-green  { background: #b6dfc8; border: none; }
   .ml-dot.zone-yellow { background: #f0dfa0; border: none; }
   .ml-dot.zone-red    { background: #f0c4bc; border: none; }
@@ -965,10 +269,8 @@
     .intro-cards { grid-template-columns: 1fr 1fr; }
   }
 
-  /* Animations */
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   .screen.active { animation: fadeIn 0.3s ease; }
-  .focus-card { animation: fadeIn 0.2s ease; }
 </style>
 </head>
 <body>
@@ -979,295 +281,145 @@
       <div class="kuka-logo">KUKA</div>
       <div class="workshop-title">
         <strong>DIS Scoping Workshop</strong>
-        Sales Transformation · Accenture Growth Strategy · DIS Scoping
+        Sales Transformation · Accenture Growth Strategy
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:16px;">
       <div id="headerSelCount" style="font-size:13px;color:#aaa;"></div>
-      <button class="btn-export outline" onclick="exportSummary()" style="padding:8px 16px;font-size:12px;">
-         Export Summary
-      </button>
+      <button class="btn-export outline" onclick="exportSummary()" style="padding:8px 16px;font-size:12px;">Export Summary</button>
     </div>
   </div>
   <div class="progress-bar">
-    <div class="progress-step active" onclick="goToScreen(0)" id="prog-0">① Welcome</div>
-    <div class="progress-step" onclick="goToScreen(1)" id="prog-1">② Rate Domains</div>
-    <div class="progress-step" onclick="goToScreen(2)" id="prog-2">③ Select Focus Areas</div>
-    <div class="progress-step" onclick="goToScreen(3)" id="prog-3">④ Deep Dive Notes</div>
-    <div class="progress-step" onclick="goToScreen(4)" id="prog-4">⑤ Use Cases</div>
-    <div class="progress-step" onclick="goToScreen(5)" id="prog-5">⑥ Shortlist & Results</div>
+    <div class="progress-step active" onclick="goToScreen(0)" id="prog-0">1 Welcome</div>
+    <div class="progress-step" onclick="goToScreen(1)" id="prog-1">2 Rate Domains</div>
+    <div class="progress-step" onclick="goToScreen(2)" id="prog-2">3 Select Focus Areas</div>
+    <div class="progress-step" onclick="goToScreen(3)" id="prog-3">4 Deep Dive Notes</div>
+    <div class="progress-step" onclick="goToScreen(4)" id="prog-4">5 Use Cases</div>
+    <div class="progress-step" onclick="goToScreen(5)" id="prog-5">6 Shortlist & Results</div>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- 
-       SCREEN 0: WELCOME
-   -->
   <div class="screen active" id="screen-0">
     <div class="intro-hero">
       <div>
-        <div class="intro-tag">Accenture × KUKA Robotics · DIS Scoping</div>
+        <div class="intro-tag">Accenture x KUKA Robotics · DIS Scoping</div>
         <h1>DIS<br><span>Scoping</span> Workshop</h1>
-        <p>Together we'll identify the most impactful opportunities to transform KUKA's sales organisation through Digital Intelligence Solutions, from pipeline to customer success.</p>
-        <button class="btn-primary" onclick="goToScreen(1)"> Start Workshop</button>
+        <p>Together we will identify the most impactful opportunities to transform KUKA's sales organisation through Digital Intelligence Solutions, from pipeline to customer success.</p>
+        <button class="btn-primary" onclick="goToScreen(1)">Start Workshop</button>
         <button class="btn-secondary" onclick="scrollToAgenda()">See Agenda</button>
       </div>
       <div class="agenda-card" id="agenda">
         <h3>Workshop Flow</h3>
-        <div class="agenda-item">
-          <div class="agenda-num">1</div>
-          <div class="agenda-text">
-            <strong>Rate Sales Domains</strong>
-            <span>How relevant is AI automation for each area today?</span>
-          </div>
-        </div>
-        <div class="agenda-item">
-          <div class="agenda-num">2</div>
-          <div class="agenda-text">
-            <strong>Select Focus Areas</strong>
-            <span>Pick the specific focus areas with highest potential</span>
-          </div>
-        </div>
-        <div class="agenda-item">
-          <div class="agenda-num">3</div>
-          <div class="agenda-text">
-            <strong>Deep Dive Notes</strong>
-            <span>Capture pain points and context for each selected area</span>
-          </div>
-        </div>
-        <div class="agenda-item">
-          <div class="agenda-num">4</div>
-          <div class="agenda-text">
-            <strong>Map Use Cases</strong>
-            <span>Explore concrete agentic use cases per focus area</span>
-          </div>
-        </div>
-        <div class="agenda-item">
-          <div class="agenda-num">5</div>
-          <div class="agenda-text">
-            <strong>Build Shortlist</strong>
-            <span>Prioritise and agree on top use cases to pursue</span>
-          </div>
-        </div>
+        <div class="agenda-item"><div class="agenda-num">1</div><div class="agenda-text"><strong>Rate Sales Domains</strong><span>How relevant is AI automation for each area today?</span></div></div>
+        <div class="agenda-item"><div class="agenda-num">2</div><div class="agenda-text"><strong>Select Focus Areas</strong><span>Pick the specific focus areas with highest potential</span></div></div>
+        <div class="agenda-item"><div class="agenda-num">3</div><div class="agenda-text"><strong>Deep Dive Notes</strong><span>Capture pain points and context for each selected area</span></div></div>
+        <div class="agenda-item"><div class="agenda-num">4</div><div class="agenda-text"><strong>Map Use Cases</strong><span>Explore concrete agentic use cases per focus area</span></div></div>
+        <div class="agenda-item"><div class="agenda-num">5</div><div class="agenda-text"><strong>Build Shortlist</strong><span>Prioritise and agree on top use cases to pursue</span></div></div>
       </div>
     </div>
-
     <div class="intro-cards">
-      <div class="intro-card">
-        
-        <h3>What is Agentic AI?</h3>
-        <p>AI agents autonomously perform multi-step tasks, make decisions, and use tools, going far beyond simple automation. They act, learn, and adapt in real time within your sales processes.</p>
-      </div>
-      <div class="intro-card">
-        
-        <h3>Workshop Goal</h3>
-        <p>Leave with a clear, prioritised shortlist of 3–5 agentic AI use cases specific to KUKA's sales context, with business rationale and a path to implementation.</p>
-      </div>
-      <div class="intro-card">
-        
-        <h3>Why Now?</h3>
-        <p>Enterprise AI agents are reaching production-readiness. Early movers in B2B manufacturing sales are capturing significant efficiency gains and competitive advantage.</p>
-      </div>
+      <div class="intro-card"><h3>What is Agentic AI?</h3><p>AI agents autonomously perform multi-step tasks, make decisions, and use tools, going far beyond simple automation. They act, learn, and adapt in real time within your sales processes.</p></div>
+      <div class="intro-card"><h3>Workshop Goal</h3><p>Leave with a clear, prioritised shortlist of 3 to 5 agentic AI use cases specific to KUKA's sales context, with business rationale and a path to implementation.</p></div>
+      <div class="intro-card"><h3>Why Now?</h3><p>Enterprise AI agents are reaching production-readiness. Early movers in B2B manufacturing sales are capturing significant efficiency gains and competitive advantage.</p></div>
     </div>
-
-    <div class="nav-row" style="border-top:none;padding-top:0;">
-      <div></div>
-      <button class="btn-nav forward" onclick="goToScreen(1)">Start Workshop →</button>
-    </div>
+    <div class="nav-row" style="border-top:none;padding-top:0;"><div></div><button class="btn-nav forward" onclick="goToScreen(1)">Start Workshop →</button></div>
   </div>
 
-  <!-- 
-       SCREEN 1: RATE DOMAINS
-   -->
   <div class="screen" id="screen-1">
-    <div class="step-header">
-      <div class="step-badge">1</div>
-      <div class="step-info">
-        <h2>Rate Sales Domains</h2>
-        <p>For each of KUKA's six sales domains, discuss and rate how much potential you see for Agentic AI. This helps us prioritise where to go deeper.</p>
-      </div>
-    </div>
-
+    <div class="step-header"><div class="step-badge">1</div><div class="step-info"><h2>Rate Sales Domains</h2><p>For each of KUKA's six sales domains, discuss and rate how much potential you see for Agentic AI. This helps us prioritise where to go deeper.</p></div></div>
     <div class="question-card">
-      <div class="question-label"> Guiding Question</div>
+      <div class="question-label">Guiding Question</div>
       <h3>"Where in our sales organisation do you feel the most time is lost to manual, repetitive, or slow processes today?"</h3>
       <p>Consider: Where do your sales reps spend time that could be automated? Where does speed matter most? Where is data underutilised?</p>
       <div class="question-hints">
-        <span class="hint-chip"> Think about daily frustrations</span>
-        <span class="hint-chip"> Data-heavy tasks</span>
-        <span class="hint-chip"> Where speed = competitive advantage</span>
-        <span class="hint-chip"> Repetitive approvals or searches</span>
+        <span class="hint-chip">Think about daily frustrations</span>
+        <span class="hint-chip">Data-heavy tasks</span>
+        <span class="hint-chip">Where speed = competitive advantage</span>
+        <span class="hint-chip">Repetitive approvals or searches</span>
       </div>
     </div>
-
     <div class="priority-section">
       <h3>Rate each domain on AI-Automation Potential</h3>
       <p>1 = Low potential today &nbsp;|&nbsp; 3 = Medium &nbsp;|&nbsp; 5 = High potential, strong case for AI agents</p>
       <div id="domainRatingList"></div>
     </div>
-
-    <div class="nav-row">
-      <button class="btn-nav back" onclick="goToScreen(0)">← Back</button>
-      <button class="btn-nav forward" onclick="goToScreen(2)">Next: Select Focus Areas →</button>
-    </div>
+    <div class="nav-row"><button class="btn-nav back" onclick="goToScreen(0)">← Back</button><button class="btn-nav forward" onclick="goToScreen(2)">Next: Select Focus Areas →</button></div>
   </div>
 
-  <!-- 
-       SCREEN 2: SELECT FOCUS AREAS
-   -->
   <div class="screen" id="screen-2">
-    <div class="step-header">
-      <div class="step-badge">2</div>
-      <div class="step-info">
-        <h2>Select Focus Areas</h2>
-        <p>Drill into each domain and select the specific focus areas where you see the highest potential for AI agents. Aim for 5–10 areas total across all domains.</p>
-      </div>
-    </div>
-
+    <div class="step-header"><div class="step-badge">2</div><div class="step-info"><h2>Select Focus Areas</h2><p>Drill into each domain and select the specific focus areas where you see the highest potential for AI agents. Aim for 5 to 10 areas total across all domains.</p></div></div>
     <div class="question-card">
-      <div class="question-label"> Guiding Questions</div>
+      <div class="question-label">Guiding Questions</div>
       <h3>"Which of these specific activities, if supercharged with AI, would have the biggest impact on KUKA's sales performance?"</h3>
       <p>Ask: Where is information scattered or hard to find? Where do decisions take too long? What would a smart assistant that works 24/7 unlock for your team?</p>
       <div class="question-hints">
-        <span class="hint-chip"> Information overload?</span>
-        <span class="hint-chip"> Slow decision cycles?</span>
-        <span class="hint-chip"> Manual communications?</span>
-        <span class="hint-chip"> Compliance overhead?</span>
+        <span class="hint-chip">Information overload?</span>
+        <span class="hint-chip">Slow decision cycles?</span>
+        <span class="hint-chip">Manual communications?</span>
+        <span class="hint-chip">Compliance overhead?</span>
       </div>
     </div>
-
     <div id="selectionCounter" class="selection-counter">
-      <div>
-        <div class="sc-label">Focus areas selected</div>
-        <div class="sc-count" id="selCountNum">0</div>
-      </div>
+      <div><div class="sc-label">Focus areas selected</div><div class="sc-count" id="selCountNum">0</div></div>
       <div class="sc-pills" id="selPills"></div>
     </div>
-
     <div class="domains-layout">
       <div class="domains-sidebar" id="domainSidebar"></div>
-      <div id="focusAreasPanel" class="focus-areas-panel">
-        <div class="empty-state">
-          <div class="es-icon"></div>
-          <p>Select a domain from the left to explore focus areas</p>
-        </div>
-      </div>
+      <div id="focusAreasPanel" class="focus-areas-panel"><div class="empty-state"><p>Select a domain from the left to explore focus areas</p></div></div>
     </div>
-
-    <div class="nav-row">
-      <button class="btn-nav back" onclick="goToScreen(1)">← Back</button>
-      <button class="btn-nav forward" onclick="goToScreen(3)" id="btn-to-3">Next: Deep Dive →</button>
-    </div>
+    <div class="nav-row"><button class="btn-nav back" onclick="goToScreen(1)">← Back</button><button class="btn-nav forward" onclick="goToScreen(3)">Next: Deep Dive →</button></div>
   </div>
 
-  <!-- 
-       SCREEN 3: DEEP DIVE NOTES
-   -->
   <div class="screen" id="screen-3">
-    <div class="step-header">
-      <div class="step-badge">3</div>
-      <div class="step-info">
-        <h2>Deep Dive, Capture Context</h2>
-        <p>For each selected focus area, capture the key pain points, current tools in use, and what an ideal AI agent outcome looks like. This context will drive use case quality.</p>
-      </div>
-    </div>
-
+    <div class="step-header"><div class="step-badge">3</div><div class="step-info"><h2>Deep Dive - Capture Context</h2><p>For each selected focus area, capture the key pain points, current tools in use, and what an ideal AI agent outcome looks like.</p></div></div>
     <div class="question-card">
-      <div class="question-label"> Guiding Questions per Area</div>
+      <div class="question-label">Guiding Questions per Area</div>
       <h3>"What is painful, slow, or error-prone about this today, and what would 'great' look like if an AI agent handled it?"</h3>
-      <p>Probe: Who owns this process? How often does it happen? What systems are involved? What's the cost of getting it wrong or slow?</p>
+      <p>Probe: Who owns this process? How often does it happen? What systems are involved? What is the cost of getting it wrong or slow?</p>
       <div class="question-hints">
-        <span class="hint-chip"> Current tools & systems?</span>
-        <span class="hint-chip"> Who is affected?</span>
-        <span class="hint-chip"> What goes wrong today?</span>
-        <span class="hint-chip"> What does 10x better look like?</span>
+        <span class="hint-chip">Current tools and systems?</span>
+        <span class="hint-chip">Who is affected?</span>
+        <span class="hint-chip">What goes wrong today?</span>
+        <span class="hint-chip">What does 10x better look like?</span>
       </div>
     </div>
-
     <div id="notesContainer"></div>
-
-    <div class="nav-row">
-      <button class="btn-nav back" onclick="goToScreen(2)">← Back</button>
-      <button class="btn-nav forward" onclick="goToScreen(4)">Next: Use Cases →</button>
-    </div>
+    <div class="nav-row"><button class="btn-nav back" onclick="goToScreen(2)">← Back</button><button class="btn-nav forward" onclick="goToScreen(4)">Next: Use Cases →</button></div>
   </div>
 
-  <!-- 
-       SCREEN 4: USE CASES
-   -->
   <div class="screen" id="screen-4">
-    <div class="step-header">
-      <div class="step-badge">4</div>
-      <div class="step-info">
-        <h2>Explore Agentic Use Cases</h2>
-        <p>For your selected focus areas, here are concrete AI agent use cases. Select the ones that resonate most with KUKA's priorities and pain points.</p>
-      </div>
-    </div>
-
+    <div class="step-header"><div class="step-badge">4</div><div class="step-info"><h2>Explore Agentic Use Cases</h2><p>For your selected focus areas, here are concrete AI agent use cases. Select the ones that resonate most with KUKA's priorities and pain points.</p></div></div>
     <div class="question-card">
-      <div class="question-label"> Guiding Questions</div>
+      <div class="question-label">Guiding Questions</div>
       <h3>"For each use case, would this solve a real pain? Do we have the data? Is there exec sponsorship?"</h3>
       <p>For each use case you consider: Rate business impact, assess data readiness, and flag any organisational dependencies or blockers.</p>
       <div class="question-hints">
-        <span class="hint-chip"> Revenue or cost impact?</span>
-        <span class="hint-chip"> Data available?</span>
-        <span class="hint-chip"> Org readiness?</span>
-        <span class="hint-chip"> Integration complexity?</span>
+        <span class="hint-chip">Revenue or cost impact?</span>
+        <span class="hint-chip">Data available?</span>
+        <span class="hint-chip">Org readiness?</span>
+        <span class="hint-chip">Integration complexity?</span>
       </div>
     </div>
-
     <div id="useCasesContainer"></div>
-
-    <div class="nav-row">
-      <button class="btn-nav back" onclick="goToScreen(3)">← Back</button>
-      <button class="btn-nav forward" onclick="goToScreen(5)">See Results →</button>
-    </div>
+    <div class="nav-row"><button class="btn-nav back" onclick="goToScreen(3)">← Back</button><button class="btn-nav forward" onclick="goToScreen(5)">See Results →</button></div>
   </div>
 
-  <!-- 
-       SCREEN 5: RESULTS
-   -->
   <div class="screen" id="screen-5">
     <div class="results-hero">
-      <div>
-        <h2> Workshop Shortlist</h2>
-        <p>Your prioritised agentic AI opportunities for KUKA Robotics Sales</p>
-      </div>
+      <div><h2>Workshop Shortlist</h2><p>Your prioritised agentic AI opportunities for KUKA Robotics Sales</p></div>
       <div class="results-stats">
-        <div class="result-stat">
-          <div class="rs-num" id="stat-domains">0</div>
-          <div class="rs-label">Domains In Scope</div>
-        </div>
-        <div class="result-stat">
-          <div class="rs-num" id="stat-areas">0</div>
-          <div class="rs-label">Focus Areas</div>
-        </div>
-        <div class="result-stat">
-          <div class="rs-num" id="stat-uc">0</div>
-          <div class="rs-label">Use Cases</div>
-        </div>
+        <div class="result-stat"><div class="rs-num" id="stat-domains">0</div><div class="rs-label">Domains In Scope</div></div>
+        <div class="result-stat"><div class="rs-num" id="stat-areas">0</div><div class="rs-label">Focus Areas</div></div>
+        <div class="result-stat"><div class="rs-num" id="stat-uc">0</div><div class="rs-label">Use Cases</div></div>
       </div>
     </div>
-
     <div class="results-grid">
-      <div class="result-panel">
-        <div class="result-panel-header">
-          Prioritised Focus Areas
-        </div>
-        <div class="result-panel-body" id="shortlistAreas"></div>
-      </div>
-      <div class="result-panel">
-        <div class="result-panel-header">
-          Selected Use Cases
-        </div>
-        <div class="result-panel-body" id="shortlistUseCases"></div>
-      </div>
+      <div class="result-panel"><div class="result-panel-header">Prioritised Focus Areas</div><div class="result-panel-body" id="shortlistAreas"></div></div>
+      <div class="result-panel"><div class="result-panel-header">Selected Use Cases</div><div class="result-panel-body" id="shortlistUseCases"></div></div>
     </div>
-
     <div id="notesResults" class="result-panel" style="margin-bottom:20px;"></div>
-
-    <!-- VALUE / EFFORT MATRIX -->
     <div class="result-panel" style="margin-bottom:20px;" id="matrixPanel">
       <div class="result-panel-header">Business Value vs. Implementation Effort</div>
       <div class="result-panel-body">
@@ -1280,7 +432,6 @@
               <div class="matrix-tick">Low</div>
             </div>
             <div class="matrix-grid" id="matrixGrid">
-              <!-- 3x3 cells: value rows (high/med/low) x effort cols (low/med/high) -->
               <div class="matrix-cell zone-green"  id="cell-high-low"></div>
               <div class="matrix-cell zone-green"  id="cell-high-medium"></div>
               <div class="matrix-cell zone-yellow" id="cell-high-high"></div>
@@ -1304,274 +455,125 @@
           <div class="matrix-legend-item"><div class="ml-dot zone-yellow"></div> Strategic Bet</div>
           <div class="matrix-legend-item"><div class="ml-dot zone-red"></div> Reconsider</div>
         </div>
-        <div id="matrixEmpty" class="empty-state" style="display:none;">
-          <p>Select use cases in Step 4 to populate the matrix.</p>
-        </div>
+        <div id="matrixEmpty" class="empty-state" style="display:none;"><p>Select use cases in Step 4 to populate the matrix.</p></div>
       </div>
     </div>
-
     <div class="next-steps">
-      <h3> Recommended Next Steps</h3>
+      <h3>Recommended Next Steps</h3>
       <div class="ns-grid">
-        <div class="ns-card">
-          <h4>Business Case Development</h4>
-          <p>Quantify the value potential of top 2–3 use cases with financial modelling, effort sizing, and ROI projections specific to KUKA's sales context.</p>
-          <span class="ns-timeframe">Week 1–2</span>
-        </div>
-        <div class="ns-card">
-          <h4>Technical Feasibility Assessment</h4>
-          <p>Assess data availability, system integration complexity, and AI readiness for prioritised use cases. Identify quick wins vs. strategic bets.</p>
-          <span class="ns-timeframe">Week 2–3</span>
-        </div>
-        <div class="ns-card">
-          <h4>Pilot Design & Sponsor Alignment</h4>
-          <p>Design a focused 6–8 week pilot for the #1 use case. Identify sponsor, define success metrics, and align on governance model for AI agents.</p>
-          <span class="ns-timeframe">Week 3–4</span>
-        </div>
+        <div class="ns-card"><h4>Business Case Development</h4><p>Quantify the value potential of top 2 to 3 use cases with financial modelling, effort sizing, and ROI projections specific to KUKA's sales context.</p><span class="ns-timeframe">Week 1-2</span></div>
+        <div class="ns-card"><h4>Technical Feasibility Assessment</h4><p>Assess data availability, system integration complexity, and AI readiness for prioritised use cases. Identify quick wins vs. strategic bets.</p><span class="ns-timeframe">Week 2-3</span></div>
+        <div class="ns-card"><h4>Pilot Design and Sponsor Alignment</h4><p>Design a focused 6 to 8 week pilot for the top use case. Identify sponsor, define success metrics, and align on governance model for AI agents.</p><span class="ns-timeframe">Week 3-4</span></div>
       </div>
     </div>
-
     <div class="export-bar">
-      <button class="btn-export" onclick="exportSummary()"> Export Summary</button>
-      <button class="btn-export" onclick="printPage()"> Print / Save PDF</button>
-      <button class="btn-export outline" onclick="goToScreen(0)">↺ Restart Workshop</button>
+      <button class="btn-export" onclick="exportSummary()">Export Summary</button>
+      <button class="btn-export" onclick="printPage()">Print / Save PDF</button>
+      <button class="btn-export outline" onclick="goToScreen(0)">Restart Workshop</button>
     </div>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <script>
-//  DATA 
 const domains = [
-  {
-    id: 'opp',
-    name: 'Opportunity Development',
-    desc: 'From market sensing to lead qualification and partner-sourced pipeline',
-    focusAreas: [
-      { id: 'mi', name: 'Market Intelligence', desc: 'Continuous monitoring of market signals, trends, and competitor moves', tags: ['Research','Automation'] },
-      { id: 'ci', name: 'Competitive Intelligence', desc: 'Track competitor pricing, positioning, wins/losses in real time', tags: ['Research','Monitoring'] },
-      { id: 'cai', name: 'Customer & Account Intelligence', desc: 'Aggregate and synthesise signals across accounts, news, intent, events', tags: ['Data','Synthesis'] },
-      { id: 'dg', name: 'Demand Generation', desc: 'Automated outreach, content personalisation, campaign optimisation', tags: ['Content','Outreach'] },
-      { id: 'lm', name: 'Lead Management', desc: 'Lead scoring, routing, enrichment, and follow-up orchestration', tags: ['Scoring','Routing'] },
-      { id: 'oq', name: 'Opportunity Qualification', desc: 'AI-assisted MEDDIC/BANT scoring, gap identification, next best actions', tags: ['Scoring','Guidance'] },
-      { id: 'pso', name: 'Partner-sourced Opportunities', desc: 'Partner deal registration, channel pipeline tracking, co-sell orchestration', tags: ['Partners','Pipeline'] },
-    ]
-  },
-  {
-    id: 'sol',
-    name: 'Solutioning & Value Engineering',
-    desc: 'From discovery through technical design to business case and ROI',
-    focusAreas: [
-      { id: 'cdr', name: 'Customer Discovery & Requirements', desc: 'Automated meeting summaries, requirement extraction, gap analysis', tags: ['Discovery','NLP'] },
-      { id: 'pc', name: 'Product Configuration', desc: 'Guided configuration CPQ with AI recommendations for optimal robot spec', tags: ['CPQ','Config'] },
-      { id: 'sad', name: 'Solution Architecture & Design', desc: 'AI-assisted solution design, standard templates, expert knowledge reuse', tags: ['Design','Knowledge'] },
-      { id: 'tfa', name: 'Technical Feasibility Assessment', desc: 'Automated preliminary feasibility checks, risk flags, escalation triggers', tags: ['Risk','Assessment'] },
-      { id: 'ce', name: 'Cost Estimation', desc: 'Dynamic costing with real-time material, labour, and tariff data', tags: ['Pricing','Data'] },
-      { id: 'bcroi', name: 'Business Case & ROI Development', desc: 'Auto-generate customer ROI models from installation history and benchmarks', tags: ['ROI','Automation'] },
-      { id: 'krr', name: 'Knowledge & Reference Reuse', desc: 'Surface similar past deals, designs, and proposals via semantic search', tags: ['Search','Knowledge'] },
-    ]
-  },
-  {
-    id: 'com',
-    name: 'Commercial & Deal Execution',
-    desc: 'From proposal through negotiation to deal close and governance',
-    focusAreas: [
-      { id: 'pm', name: 'Proposal Management', desc: 'AI-generated tailored proposals from templates, past deals, and customer data', tags: ['Content','Gen-AI'] },
-      { id: 'qm', name: 'Quotation Management', desc: 'Automated quote generation, version control, approval triggers', tags: ['CPQ','Workflow'] },
-      { id: 'prm', name: 'Pricing Management', desc: 'Dynamic pricing recommendations, discount guardrails, competitive benchmarks', tags: ['Pricing','Analytics'] },
-      { id: 'btm', name: 'Bid & Tender Management', desc: 'AI-assisted RFP parsing, response generation, compliance checks', tags: ['RFP','Automation'] },
-      { id: 'ns', name: 'Negotiation Support', desc: 'Real-time concession analysis, BATNA prep, deal scenario modelling', tags: ['Analytics','Coaching'] },
-      { id: 'ag', name: 'Approval & Governance', desc: 'Automated approval routing with AI-generated deal summaries for decision makers', tags: ['Workflow','Compliance'] },
-      { id: 'drm', name: 'Deal Risk Management', desc: 'Continuous deal health scoring, churn risk, execution risk flags', tags: ['Risk','Monitoring'] },
-    ]
-  },
-  {
-    id: 'cge',
-    name: 'Customer Growth & Ecosystem',
-    desc: 'Expanding existing accounts, cross-sell, partner, and channel management',
-    focusAreas: [
-      { id: 'ap', name: 'Account Planning', desc: 'AI-built account plans, whitespace analysis, stakeholder mapping', tags: ['Planning','Analytics'] },
-      { id: 'ibm', name: 'Installed Base Management', desc: 'Agent monitors installed KUKA systems for upgrade, service, and expansion signals', tags: ['Monitoring','Alerts'] },
-      { id: 'csu', name: 'Cross-Sell & Upsell', desc: 'Propensity models + AI-generated outreach for relevant add-ons and upgrades', tags: ['ML','Outreach'] },
-      { id: 'cs', name: 'Customer Success', desc: 'Proactive health scoring, escalation detection, renewal risk management', tags: ['Health','Retention'] },
-      { id: 'pman', name: 'Partner Management', desc: 'Partner performance analytics, enablement content, deal collaboration tools', tags: ['Partners','Analytics'] },
-      { id: 'csm', name: 'Channel Sales Management', desc: 'Channel pipeline visibility, conflict management, incentive optimisation', tags: ['Channel','Analytics'] },
-    ]
-  },
-  {
-    id: 'soe',
-    name: 'Sales Operations & Enablement',
-    desc: 'CRM data quality, forecasting, process management, and coaching',
-    focusAreas: [
-      { id: 'crm', name: 'CRM & Data Quality', desc: 'Automated CRM hygiene, duplicate detection, enrichment from external sources', tags: ['Data','CRM'] },
-      { id: 'fpm', name: 'Forecasting & Pipeline Management', desc: 'AI-driven forecast models with rep-level confidence and risk signals', tags: ['Forecast','Analytics'] },
-      { id: 'spm', name: 'Sales Process Management', desc: 'Guided next best actions, stage progression rules, deal coaching nudges', tags: ['Workflow','Coaching'] },
-      { id: 'km', name: 'Knowledge Management', desc: 'Intelligent knowledge base, instant answers to product, pricing, policy queries', tags: ['Search','Enablement'] },
-      { id: 'sec', name: 'Sales Enablement & Coaching', desc: 'AI role-plays, call analysis, personalised learning paths for reps', tags: ['Coaching','AI'] },
-      { id: 'perf', name: 'Performance Management', desc: 'Real-time dashboards, quota attainment tracking, early-warning signals', tags: ['Analytics','Dashboards'] },
-    ]
-  },
-  {
-    id: 'rsp',
-    name: 'Revenue Strategy & Planning',
-    desc: 'Territory, segmentation, target-setting, and strategic account coverage',
-    focusAreas: [
-      { id: 'tp', name: 'Territory Planning', desc: 'AI-optimised territory design balancing potential, coverage, and rep capacity', tags: ['Planning','Optimisation'] },
-      { id: 'as', name: 'Account Segmentation', desc: 'Dynamic segmentation using firmographics, intent, and installed base data', tags: ['Segmentation','ML'] },
-      { id: 'cm', name: 'Coverage Model', desc: 'Automated coverage gap analysis, overlay resource recommendations', tags: ['Planning','Analytics'] },
-      { id: 'tsqp', name: 'Target Setting & Quota Planning', desc: 'Data-driven quota modelling with fairness scoring and scenario simulation', tags: ['Planning','Simulation'] },
-      { id: 'sap', name: 'Strategic Account Prioritisation', desc: 'AI scores and ranks accounts by growth potential and strategic fit', tags: ['Scoring','Strategy'] },
-      { id: 'scp', name: 'Sales Capacity Planning', desc: 'Workforce modelling, ramp time, attrition impact on pipeline coverage', tags: ['HR','Planning'] },
-    ]
-  }
+  { id: 'opp', name: 'Opportunity Development', desc: 'From market sensing to lead qualification and partner-sourced pipeline', focusAreas: [
+    { id: 'mi',  name: 'Market Intelligence',            desc: 'Continuous monitoring of market signals, trends, and competitor moves', tags: ['Research','Automation'] },
+    { id: 'ci',  name: 'Competitive Intelligence',       desc: 'Track competitor pricing, positioning, wins/losses in real time', tags: ['Research','Monitoring'] },
+    { id: 'cai', name: 'Customer & Account Intelligence',desc: 'Aggregate and synthesise signals across accounts, news, intent, events', tags: ['Data','Synthesis'] },
+    { id: 'dg',  name: 'Demand Generation',              desc: 'Automated outreach, content personalisation, campaign optimisation', tags: ['Content','Outreach'] },
+    { id: 'lm',  name: 'Lead Management',                desc: 'Lead scoring, routing, enrichment, and follow-up orchestration', tags: ['Scoring','Routing'] },
+    { id: 'oq',  name: 'Opportunity Qualification',      desc: 'AI-assisted MEDDIC/BANT scoring, gap identification, next best actions', tags: ['Scoring','Guidance'] },
+    { id: 'pso', name: 'Partner-sourced Opportunities',  desc: 'Partner deal registration, channel pipeline tracking, co-sell orchestration', tags: ['Partners','Pipeline'] },
+  ]},
+  { id: 'sol', name: 'Solutioning & Value Engineering', desc: 'From discovery through technical design to business case and ROI', focusAreas: [
+    { id: 'cdr',   name: 'Customer Discovery & Requirements', desc: 'Automated meeting summaries, requirement extraction, gap analysis', tags: ['Discovery','NLP'] },
+    { id: 'pc',    name: 'Product Configuration',             desc: 'Guided configuration CPQ with AI recommendations for optimal robot spec', tags: ['CPQ','Config'] },
+    { id: 'sad',   name: 'Solution Architecture & Design',    desc: 'AI-assisted solution design, standard templates, expert knowledge reuse', tags: ['Design','Knowledge'] },
+    { id: 'tfa',   name: 'Technical Feasibility Assessment',  desc: 'Automated preliminary feasibility checks, risk flags, escalation triggers', tags: ['Risk','Assessment'] },
+    { id: 'ce',    name: 'Cost Estimation',                   desc: 'Dynamic costing with real-time material, labour, and tariff data', tags: ['Pricing','Data'] },
+    { id: 'bcroi', name: 'Business Case & ROI Development',   desc: 'Auto-generate customer ROI models from installation history and benchmarks', tags: ['ROI','Automation'] },
+    { id: 'krr',   name: 'Knowledge & Reference Reuse',       desc: 'Surface similar past deals, designs, and proposals via semantic search', tags: ['Search','Knowledge'] },
+  ]},
+  { id: 'com', name: 'Commercial & Deal Execution', desc: 'From proposal through negotiation to deal close and governance', focusAreas: [
+    { id: 'pm',  name: 'Proposal Management',    desc: 'AI-generated tailored proposals from templates, past deals, and customer data', tags: ['Content','Gen-AI'] },
+    { id: 'qm',  name: 'Quotation Management',   desc: 'Automated quote generation, version control, approval triggers', tags: ['CPQ','Workflow'] },
+    { id: 'prm', name: 'Pricing Management',     desc: 'Dynamic pricing recommendations, discount guardrails, competitive benchmarks', tags: ['Pricing','Analytics'] },
+    { id: 'btm', name: 'Bid & Tender Management',desc: 'AI-assisted RFP parsing, response generation, compliance checks', tags: ['RFP','Automation'] },
+    { id: 'ns',  name: 'Negotiation Support',    desc: 'Real-time concession analysis, BATNA prep, deal scenario modelling', tags: ['Analytics','Coaching'] },
+    { id: 'ag',  name: 'Approval & Governance',  desc: 'Automated approval routing with AI-generated deal summaries for decision makers', tags: ['Workflow','Compliance'] },
+    { id: 'drm', name: 'Deal Risk Management',   desc: 'Continuous deal health scoring, churn risk, execution risk flags', tags: ['Risk','Monitoring'] },
+  ]},
+  { id: 'cge', name: 'Customer Growth & Ecosystem', desc: 'Expanding existing accounts, cross-sell, partner, and channel management', focusAreas: [
+    { id: 'ap',   name: 'Account Planning',          desc: 'AI-built account plans, whitespace analysis, stakeholder mapping', tags: ['Planning','Analytics'] },
+    { id: 'ibm',  name: 'Installed Base Management', desc: 'Agent monitors installed KUKA systems for upgrade, service, and expansion signals', tags: ['Monitoring','Alerts'] },
+    { id: 'csu',  name: 'Cross-Sell & Upsell',       desc: 'Propensity models and AI-generated outreach for relevant add-ons and upgrades', tags: ['ML','Outreach'] },
+    { id: 'cs',   name: 'Customer Success',           desc: 'Proactive health scoring, escalation detection, renewal risk management', tags: ['Health','Retention'] },
+    { id: 'pman', name: 'Partner Management',         desc: 'Partner performance analytics, enablement content, deal collaboration tools', tags: ['Partners','Analytics'] },
+    { id: 'csm',  name: 'Channel Sales Management',   desc: 'Channel pipeline visibility, conflict management, incentive optimisation', tags: ['Channel','Analytics'] },
+  ]},
+  { id: 'soe', name: 'Sales Operations & Enablement', desc: 'CRM data quality, forecasting, process management, and coaching', focusAreas: [
+    { id: 'crm',  name: 'CRM & Data Quality',              desc: 'Automated CRM hygiene, duplicate detection, enrichment from external sources', tags: ['Data','CRM'] },
+    { id: 'fpm',  name: 'Forecasting & Pipeline Management',desc: 'AI-driven forecast models with rep-level confidence and risk signals', tags: ['Forecast','Analytics'] },
+    { id: 'spm',  name: 'Sales Process Management',        desc: 'Guided next best actions, stage progression rules, deal coaching nudges', tags: ['Workflow','Coaching'] },
+    { id: 'km',   name: 'Knowledge Management',            desc: 'Intelligent knowledge base, instant answers to product, pricing, policy queries', tags: ['Search','Enablement'] },
+    { id: 'sec',  name: 'Sales Enablement & Coaching',     desc: 'AI role-plays, call analysis, personalised learning paths for reps', tags: ['Coaching','AI'] },
+    { id: 'perf', name: 'Performance Management',          desc: 'Real-time dashboards, quota attainment tracking, early-warning signals', tags: ['Analytics','Dashboards'] },
+  ]},
+  { id: 'rsp', name: 'Revenue Strategy & Planning', desc: 'Territory, segmentation, target-setting, and strategic account coverage', focusAreas: [
+    { id: 'tp',   name: 'Territory Planning',               desc: 'AI-optimised territory design balancing potential, coverage, and rep capacity', tags: ['Planning','Optimisation'] },
+    { id: 'as',   name: 'Account Segmentation',             desc: 'Dynamic segmentation using firmographics, intent, and installed base data', tags: ['Segmentation','ML'] },
+    { id: 'cm',   name: 'Coverage Model',                   desc: 'Automated coverage gap analysis, overlay resource recommendations', tags: ['Planning','Analytics'] },
+    { id: 'tsqp', name: 'Target Setting & Quota Planning',  desc: 'Data-driven quota modelling with fairness scoring and scenario simulation', tags: ['Planning','Simulation'] },
+    { id: 'sap',  name: 'Strategic Account Prioritisation', desc: 'AI scores and ranks accounts by growth potential and strategic fit', tags: ['Scoring','Strategy'] },
+    { id: 'scp',  name: 'Sales Capacity Planning',          desc: 'Workforce modelling, ramp time, attrition impact on pipeline coverage', tags: ['HR','Planning'] },
+  ]},
 ];
 
 const useCaseLibrary = {
-  'mi': [
-    { id: 'mi-1', title: 'Market Signal Sentinel', desc: "An AI agent monitors news, patents, earnings calls, and trade publications in real time, summarising relevant signals for KUKA's target verticals (automotive, aerospace, logistics) daily.", value: 'high' },
-    { id: 'mi-2', title: 'Trend Briefing Generator', desc: "Automatically generates weekly trend briefings per vertical, tailored to the rep's specific accounts, delivered to Outlook or Teams with zero manual effort.", value: 'medium' }
-  ],
-  'ci': [
-    { id: 'ci-1', title: 'Competitor Win/Loss Analyser', desc: 'AI agent analyses won/lost deal data to surface competitor patterns, pricing benchmarks, and common objections, automatically refreshing playbooks for the sales team.', value: 'high' },
-    { id: 'ci-2', title: 'Competitive Alert Monitor', desc: 'Watches competitor websites, press releases, and job postings for product or pricing changes, alerts the relevant sales team within hours.', value: 'medium' }
-  ],
-  'cai': [
-    { id: 'cai-1', title: 'Account Intelligence Digest', desc: 'An agent aggregates signals across each named account (news, M&A activity, LinkedIn changes, ERP/CRM data) and delivers a pre-meeting briefing to the AE automatically.', value: 'high' },
-    { id: 'cai-2', title: 'Intent Signal Detector', desc: 'Monitors third-party intent data and website interactions to flag accounts showing buying signals, triggers outreach sequences automatically.', value: 'high' }
-  ],
-  'dg': [
-    { id: 'dg-1', title: 'Hyper-Personalised Outreach Agent', desc: "Generates highly personalised cold outreach emails using account intelligence, persona data, and KUKA solution fit, drafted in the rep's voice, approved with one click.", value: 'high' },
-    { id: 'dg-2', title: 'Campaign Optimisation Agent', desc: 'Continuously A/B tests messaging, segments, and channels, autonomously reallocating budget and sequences to the best-performing combinations.', value: 'medium' }
-  ],
-  'lm': [
-    { id: 'lm-1', title: 'Intelligent Lead Router', desc: 'AI agent scores inbound leads, enriches with company data, matches to ideal customer profile, and routes to the right rep with context, eliminating manual triage entirely.', value: 'high' },
-    { id: 'lm-2', title: 'Lead Nurture Orchestrator', desc: 'Autonomously manages multi-touch nurture sequences for unqualified leads, escalating to human reps only when intent signals cross a threshold.', value: 'medium' }
-  ],
-  'oq': [
-    { id: 'oq-1', title: 'Qualification Coach', desc: 'After each discovery call, AI analyses transcript against MEDDIC/BANT framework and gives the rep a qualification score with specific gap questions to ask next.', value: 'high' },
-    { id: 'oq-2', title: 'Deal Velocity Predictor', desc: 'Predicts likelihood of close and expected timeline based on engagement, persona coverage, and competitor activity, flags at-risk deals for coaching.', value: 'high' }
-  ],
-  'cdr': [
-    { id: 'cdr-1', title: 'Discovery Copilot', desc: 'Real-time meeting assistant that surfaces relevant KUKA case studies during calls, auto-captures requirements, and generates structured discovery summaries post-call.', value: 'high' },
-    { id: 'cdr-2', title: 'Requirements Extraction Agent', desc: 'Parses RFQ/RFP documents and meeting notes to extract structured technical requirements, pre-populating solution templates and flagging gaps.', value: 'medium' }
-  ],
-  'pc': [
-    { id: 'pc-1', title: 'CPQ Configuration Agent', desc: 'AI-guided product configurator that recommends optimal KUKA robot models, grippers, and software modules based on customer use case, integrated with SAP CPQ.', value: 'high' },
-    { id: 'pc-2', title: 'Configuration Validation Bot', desc: 'Automatically validates configurations for technical feasibility and flags incompatibilities before the quote is sent, reducing errors and customer complaints.', value: 'medium' }
-  ],
-  'sad': [
-    { id: 'sad-1', title: 'Solution Design Assistant', desc: 'Suggests solution architectures based on similar past KUKA implementations, drawing on a searchable knowledge base of 1000s of robot cell designs.', value: 'high' },
-    { id: 'sad-2', title: 'Technical Document Generator', desc: 'Generates tailored technical documentation (system descriptions, integration specs) from structured solution data, cutting pre-sales engineering time by 60%.', value: 'high' }
-  ],
-  'bcroi': [
-    { id: 'bcroi-1', title: 'ROI Model Builder', desc: "AI agent generates a customer-specific ROI model using KUKA's installed base benchmarks, payback period, throughput gains, labour offset, in under 10 minutes.", value: 'high' },
-    { id: 'bcroi-2', title: 'Business Case Narrative Writer', desc: "Converts ROI model outputs into a polished business case narrative in the customer's language, approved by the AE, delivered to the economic buyer.", value: 'medium' }
-  ],
-  'krr': [
-    { id: 'krr-1', title: 'Proposal Intelligence Search', desc: 'Semantic search across all past KUKA proposals and contracts, sales reps find relevant references, pricing precedents, and winning language in seconds.', value: 'high' },
-    { id: 'krr-2', title: 'Expert Knowledge Connector', desc: 'AI surfaces the right internal expert (solution architect, product specialist) based on deal requirements, auto-drafts the internal briefing note.', value: 'medium' }
-  ],
-  'pm': [
-    { id: 'pm-1', title: 'Proposal Autopilot', desc: 'End-to-end AI-generated proposals: pulls in solution design, ROI model, company overview, relevant references, producing a draft within 2 hours vs. 2 days.', value: 'high' },
-    { id: 'pm-2', title: 'Executive Summary Crafter', desc: "Generates tailored C-suite executive summaries from complex technical proposals, focusing on business outcomes relevant to the buyer's stated priorities.", value: 'high' }
-  ],
-  'btm': [
-    { id: 'btm-1', title: 'RFP Response Agent', desc: "Parses incoming RFPs, identifies compliance requirements, maps to KUKA's catalogue, and drafts structured responses, with human review before submission.", value: 'high' },
-    { id: 'btm-2', title: 'Tender Compliance Checker', desc: 'Automatically checks bid responses against all stated requirements and flags gaps, missing signatures, or non-compliant clauses before deadline.', value: 'medium' }
-  ],
-  'prm': [
-    { id: 'prm-1', title: 'Dynamic Pricing Advisor', desc: 'Real-time pricing guidance that accounts for competitive benchmarks, deal size, margin floors, and customer tier, with automated discount approval workflow.', value: 'high' },
-    { id: 'prm-2', title: 'Margin Protection Agent', desc: 'Monitors deal pricing vs. approved thresholds and escalates to management if discounts threaten margin, before the quote is sent to the customer.', value: 'medium' }
-  ],
-  'ag': [
-    { id: 'ag-1', title: 'Deal Summary Agent', desc: 'Automatically compiles deal approval packages, deal summary, risk flags, customer background, margin analysis, reducing approval prep time from hours to minutes.', value: 'high' },
-    { id: 'ag-2', title: 'Approval Routing Optimizer', desc: 'Intelligently routes deals to the right approver based on deal size, product type, and geography, with escalation logic and SLA tracking.', value: 'medium' }
-  ],
-  'ibm': [
-    { id: 'ibm-1', title: 'Installed Base Monitor', desc: "AI agent continuously scans KUKA's installed base for warranty expirations, system age, and service logs to flag upgrade and renewal conversations proactively.", value: 'high' },
-    { id: 'ibm-2', title: 'Expansion Signal Detector', desc: 'Identifies when customers are expanding capacity, hiring automation engineers, or investing in new facilities, triggering outreach before competitors engage.', value: 'high' }
-  ],
-  'csu': [
-    { id: 'csu-1', title: 'Next Best Offer Engine', desc: "AI matches each customer's profile and installed base to the most relevant KUKA add-ons (software, peripherals, service contracts), generating personalised outreach.", value: 'high' },
-    { id: 'csu-2', title: 'Upsell Playbook Coach', desc: "Provides reps with AI-generated upsell conversation guides based on the customer's specific use case and recent interactions, ready before every QBR.", value: 'medium' }
-  ],
-  'cs': [
-    { id: 'cs-1', title: 'Customer Health Sentinel', desc: 'Aggregates engagement, usage, support ticket, and NPS data into a real-time health score, alerting CSMs to at-risk accounts before they churn.', value: 'high' },
-    { id: 'cs-2', title: 'Renewal Risk Manager', desc: 'AI models renewal likelihood 90 days out, recommending specific save plays and flagging accounts needing executive engagement.', value: 'high' }
-  ],
-  'crm': [
-    { id: 'crm-1', title: 'CRM Data Hygiene Agent', desc: 'Continuously enriches, deduplicates, and corrects CRM records using external data sources (Dun & Bradstreet, LinkedIn, KUKA service data), zero manual effort.', value: 'high' },
-    { id: 'crm-2', title: 'Activity Auto-Logger', desc: 'Captures all sales activities (emails, meetings, calls) and auto-logs structured summaries to CRM, eliminating manual rep data entry entirely.', value: 'high' }
-  ],
-  'fpm': [
-    { id: 'fpm-1', title: 'AI Forecast Model', desc: 'Machine learning forecast that learns from historical deal patterns, rep behaviour, and market data, providing deal-level and aggregate confidence scores.', value: 'high' },
-    { id: 'fpm-2', title: 'Pipeline Risk Radar', desc: 'Monitors deal engagement signals and flags deals at risk of slippage, with specific coaching actions recommended to the rep and manager.', value: 'high' }
-  ],
-  'sec': [
-    { id: 'sec-1', title: 'AI Sales Coach', desc: 'Analyses call recordings and emails to deliver personalised coaching feedback on discovery, objection handling, and closing technique, at scale.', value: 'high' },
-    { id: 'sec-2', title: 'Onboarding Accelerator', desc: 'AI-personalised onboarding journeys for new KUKA sales reps, combining product knowledge, process guidance, and simulated customer scenarios.', value: 'medium' }
-  ],
-  'km': [
-    { id: 'km-1', title: 'Sales Knowledge Agent', desc: "Conversational AI assistant that answers any product, pricing, policy, or process question instantly, trained on KUKA's full knowledge base, always up to date.", value: 'high' },
-    { id: 'km-2', title: 'Competitor Battle Card Bot', desc: 'On-demand, AI-updated competitive battle cards, reps ask in natural language and get the latest positioning, objection handling, and win strategies.', value: 'medium' }
-  ],
-  'tp': [
-    { id: 'tp-1', title: 'Territory Optimiser', desc: 'AI model that designs optimal territory boundaries using market potential data, travel time, account clustering, and rep capacity, updated annually or on-demand.', value: 'medium' },
-  ],
-  'as': [
-    { id: 'as-1', title: 'Dynamic Segmentation Engine', desc: 'Continuously re-segments accounts using live firmographic, intent, and installed base data, ensuring coverage model reflects current opportunity landscape.', value: 'medium' },
-  ],
-  'sap': [
-    { id: 'sap-1', title: 'Strategic Account Scorer', desc: 'AI scores all accounts on growth potential, strategic fit, and current engagement depth, enabling leadership to direct resources to highest-value targets.', value: 'high' },
-  ],
-  'ns': [
-    { id: 'ns-1', title: 'Negotiation Scenario Modeller', desc: "AI simulates negotiation scenarios (price, terms, scope) and recommends optimal concession strategies, based on KUKA's margin guardrails and win patterns.", value: 'medium' },
-  ],
-  'drm': [
-    { id: 'drm-1', title: 'Deal Health Monitor', desc: 'Continuously tracks deal risk factors (stakeholder access, budget confirmed, timeline slippage) and generates an automated deal health score per opportunity.', value: 'high' },
-  ],
-  'pman': [
-    { id: 'pman-1', title: 'Partner Pipeline Agent', desc: 'Tracks partner deal progress, flags stale partner opportunities, and automatically sends co-sell coordination nudges to the right partner managers.', value: 'medium' },
-  ],
-  'perf': [
-    { id: 'perf-1', title: 'Real-Time Sales Dashboard', desc: 'AI-powered dashboard that surfaces quota attainment, pipeline health, and coaching opportunities for every rep, updated in real time from CRM and communication tools.', value: 'medium' },
-  ],
+  'mi':    [{ id:'mi-1',    title:'Market Signal Sentinel',           desc:"An AI agent monitors news, patents, earnings calls, and trade publications in real time, summarising relevant signals for KUKA's target verticals (automotive, aerospace, logistics) daily.", value:'high' }, { id:'mi-2', title:'Trend Briefing Generator', desc:"Automatically generates weekly trend briefings per vertical, tailored to the rep's specific accounts, delivered to Outlook or Teams with zero manual effort.", value:'medium' }],
+  'ci':    [{ id:'ci-1',    title:'Competitor Win/Loss Analyser',     desc:'AI agent analyses won/lost deal data to surface competitor patterns, pricing benchmarks, and common objections, automatically refreshing playbooks for the sales team.', value:'high' }, { id:'ci-2', title:'Competitive Alert Monitor', desc:'Watches competitor websites, press releases, and job postings for product or pricing changes, alerts the relevant sales team within hours.', value:'medium' }],
+  'cai':   [{ id:'cai-1',   title:'Account Intelligence Digest',      desc:'An agent aggregates signals across each named account (news, M&A activity, LinkedIn changes, ERP/CRM data) and delivers a pre-meeting briefing to the AE automatically.', value:'high' }, { id:'cai-2', title:'Intent Signal Detector', desc:'Monitors third-party intent data and website interactions to flag accounts showing buying signals, triggers outreach sequences automatically.', value:'high' }],
+  'dg':    [{ id:'dg-1',    title:'Hyper-Personalised Outreach Agent',desc:"Generates highly personalised cold outreach emails using account intelligence, persona data, and KUKA solution fit, drafted in the rep's voice, approved with one click.", value:'high' }, { id:'dg-2', title:'Campaign Optimisation Agent', desc:'Continuously A/B tests messaging, segments, and channels, autonomously reallocating budget and sequences to the best-performing combinations.', value:'medium' }],
+  'lm':    [{ id:'lm-1',    title:'Intelligent Lead Router',          desc:'AI agent scores inbound leads, enriches with company data, matches to ideal customer profile, and routes to the right rep with context, eliminating manual triage entirely.', value:'high' }, { id:'lm-2', title:'Lead Nurture Orchestrator', desc:'Autonomously manages multi-touch nurture sequences for unqualified leads, escalating to human reps only when intent signals cross a threshold.', value:'medium' }],
+  'oq':    [{ id:'oq-1',    title:'Qualification Coach',              desc:'After each discovery call, AI analyses transcript against MEDDIC/BANT framework and gives the rep a qualification score with specific gap questions to ask next.', value:'high' }, { id:'oq-2', title:'Deal Velocity Predictor', desc:'Predicts likelihood of close and expected timeline based on engagement, persona coverage, and competitor activity, flags at-risk deals for coaching.', value:'high' }],
+  'cdr':   [{ id:'cdr-1',   title:'Discovery Copilot',                desc:'Real-time meeting assistant that surfaces relevant KUKA case studies during calls, auto-captures requirements, and generates structured discovery summaries post-call.', value:'high' }, { id:'cdr-2', title:'Requirements Extraction Agent', desc:'Parses RFQ/RFP documents and meeting notes to extract structured technical requirements, pre-populating solution templates and flagging gaps.', value:'medium' }],
+  'pc':    [{ id:'pc-1',    title:'CPQ Configuration Agent',          desc:'AI-guided product configurator that recommends optimal KUKA robot models, grippers, and software modules based on customer use case, integrated with SAP CPQ.', value:'high' }, { id:'pc-2', title:'Configuration Validation Bot', desc:'Automatically validates configurations for technical feasibility and flags incompatibilities before the quote is sent, reducing errors and customer complaints.', value:'medium' }],
+  'sad':   [{ id:'sad-1',   title:'Solution Design Assistant',        desc:'Suggests solution architectures based on similar past KUKA implementations, drawing on a searchable knowledge base of 1000s of robot cell designs.', value:'high' }, { id:'sad-2', title:'Technical Document Generator', desc:'Generates tailored technical documentation (system descriptions, integration specs) from structured solution data, cutting pre-sales engineering time by 60%.', value:'high' }],
+  'bcroi': [{ id:'bcroi-1', title:'ROI Model Builder',                desc:"AI agent generates a customer-specific ROI model using KUKA's installed base benchmarks, payback period, throughput gains, labour offset, in under 10 minutes.", value:'high' }, { id:'bcroi-2', title:'Business Case Narrative Writer', desc:"Converts ROI model outputs into a polished business case narrative in the customer's language, approved by the AE, delivered to the economic buyer.", value:'medium' }],
+  'krr':   [{ id:'krr-1',   title:'Proposal Intelligence Search',     desc:'Semantic search across all past KUKA proposals and contracts, sales reps find relevant references, pricing precedents, and winning language in seconds.', value:'high' }, { id:'krr-2', title:'Expert Knowledge Connector', desc:'AI surfaces the right internal expert (solution architect, product specialist) based on deal requirements, auto-drafts the internal briefing note.', value:'medium' }],
+  'pm':    [{ id:'pm-1',    title:'Proposal Autopilot',               desc:'End-to-end AI-generated proposals pulling in solution design, ROI model, company overview, and relevant references, producing a draft within 2 hours vs. 2 days.', value:'high' }, { id:'pm-2', title:'Executive Summary Crafter', desc:"Generates tailored C-suite executive summaries from complex technical proposals, focusing on business outcomes relevant to the buyer's stated priorities.", value:'high' }],
+  'btm':   [{ id:'btm-1',   title:'RFP Response Agent',               desc:"Parses incoming RFPs, identifies compliance requirements, maps to KUKA's catalogue, and drafts structured responses, with human review before submission.", value:'high' }, { id:'btm-2', title:'Tender Compliance Checker', desc:'Automatically checks bid responses against all stated requirements and flags gaps, missing signatures, or non-compliant clauses before deadline.', value:'medium' }],
+  'prm':   [{ id:'prm-1',   title:'Dynamic Pricing Advisor',          desc:'Real-time pricing guidance that accounts for competitive benchmarks, deal size, margin floors, and customer tier, with automated discount approval workflow.', value:'high' }, { id:'prm-2', title:'Margin Protection Agent', desc:'Monitors deal pricing vs. approved thresholds and escalates to management if discounts threaten margin, before the quote is sent to the customer.', value:'medium' }],
+  'ag':    [{ id:'ag-1',    title:'Deal Summary Agent',               desc:'Automatically compiles deal approval packages including deal summary, risk flags, customer background, and margin analysis, reducing approval prep time from hours to minutes.', value:'high' }, { id:'ag-2', title:'Approval Routing Optimizer', desc:'Intelligently routes deals to the right approver based on deal size, product type, and geography, with escalation logic and SLA tracking.', value:'medium' }],
+  'ibm':   [{ id:'ibm-1',   title:'Installed Base Monitor',           desc:"AI agent continuously scans KUKA's installed base for warranty expirations, system age, and service logs to flag upgrade and renewal conversations proactively.", value:'high' }, { id:'ibm-2', title:'Expansion Signal Detector', desc:'Identifies when customers are expanding capacity, hiring automation engineers, or investing in new facilities, triggering outreach before competitors engage.', value:'high' }],
+  'csu':   [{ id:'csu-1',   title:'Next Best Offer Engine',           desc:"AI matches each customer's profile and installed base to the most relevant KUKA add-ons (software, peripherals, service contracts), generating personalised outreach.", value:'high' }, { id:'csu-2', title:'Upsell Playbook Coach', desc:"Provides reps with AI-generated upsell conversation guides based on the customer's specific use case and recent interactions, ready before every QBR.", value:'medium' }],
+  'cs':    [{ id:'cs-1',    title:'Customer Health Sentinel',         desc:'Aggregates engagement, usage, support ticket, and NPS data into a real-time health score, alerting CSMs to at-risk accounts before they churn.', value:'high' }, { id:'cs-2', title:'Renewal Risk Manager', desc:'AI models renewal likelihood 90 days out, recommending specific save plays and flagging accounts needing executive engagement.', value:'high' }],
+  'crm':   [{ id:'crm-1',   title:'CRM Data Hygiene Agent',           desc:'Continuously enriches, deduplicates, and corrects CRM records using external data sources (Dun & Bradstreet, LinkedIn, KUKA service data), zero manual effort.', value:'high' }, { id:'crm-2', title:'Activity Auto-Logger', desc:'Captures all sales activities (emails, meetings, calls) and auto-logs structured summaries to CRM, eliminating manual rep data entry entirely.', value:'high' }],
+  'fpm':   [{ id:'fpm-1',   title:'AI Forecast Model',                desc:'Machine learning forecast that learns from historical deal patterns, rep behaviour, and market data, providing deal-level and aggregate confidence scores.', value:'high' }, { id:'fpm-2', title:'Pipeline Risk Radar', desc:'Monitors deal engagement signals and flags deals at risk of slippage, with specific coaching actions recommended to the rep and manager.', value:'high' }],
+  'sec':   [{ id:'sec-1',   title:'AI Sales Coach',                   desc:'Analyses call recordings and emails to deliver personalised coaching feedback on discovery, objection handling, and closing technique, at scale.', value:'high' }, { id:'sec-2', title:'Onboarding Accelerator', desc:'AI-personalised onboarding journeys for new KUKA sales reps, combining product knowledge, process guidance, and simulated customer scenarios.', value:'medium' }],
+  'km':    [{ id:'km-1',    title:'Sales Knowledge Agent',            desc:"Conversational AI assistant that answers any product, pricing, policy, or process question instantly, trained on KUKA's full knowledge base, always up to date.", value:'high' }, { id:'km-2', title:'Competitor Battle Card Bot', desc:'On-demand, AI-updated competitive battle cards, reps ask in natural language and get the latest positioning, objection handling, and win strategies.', value:'medium' }],
+  'tp':    [{ id:'tp-1',    title:'Territory Optimiser',              desc:'AI model that designs optimal territory boundaries using market potential data, travel time, account clustering, and rep capacity, updated annually or on-demand.', value:'medium' }],
+  'as':    [{ id:'as-1',    title:'Dynamic Segmentation Engine',      desc:'Continuously re-segments accounts using live firmographic, intent, and installed base data, ensuring coverage model reflects current opportunity landscape.', value:'medium' }],
+  'sap':   [{ id:'sap-1',   title:'Strategic Account Scorer',         desc:'AI scores all accounts on growth potential, strategic fit, and current engagement depth, enabling leadership to direct resources to highest-value targets.', value:'high' }],
+  'ns':    [{ id:'ns-1',    title:'Negotiation Scenario Modeller',    desc:"AI simulates negotiation scenarios (price, terms, scope) and recommends optimal concession strategies, based on KUKA's margin guardrails and win patterns.", value:'medium' }],
+  'drm':   [{ id:'drm-1',   title:'Deal Health Monitor',              desc:'Continuously tracks deal risk factors (stakeholder access, budget confirmed, timeline slippage) and generates an automated deal health score per opportunity.', value:'high' }],
+  'pman':  [{ id:'pman-1',  title:'Partner Pipeline Agent',           desc:'Tracks partner deal progress, flags stale partner opportunities, and automatically sends co-sell coordination nudges to the right partner managers.', value:'medium' }],
+  'perf':  [{ id:'perf-1',  title:'Real-Time Sales Dashboard',        desc:'AI-powered dashboard that surfaces quota attainment, pipeline health, and coaching opportunities for every rep, updated in real time from CRM and communication tools.', value:'medium' }],
 };
 
-// Effort ratings: low / medium / high
 const effortData = {
-  'mi-1': 'medium', 'mi-2': 'low',
-  'ci-1': 'medium', 'ci-2': 'low',
-  'cai-1': 'medium', 'cai-2': 'high',
-  'dg-1': 'low', 'dg-2': 'medium',
-  'lm-1': 'medium', 'lm-2': 'medium',
-  'oq-1': 'low', 'oq-2': 'high',
-  'cdr-1': 'medium', 'cdr-2': 'low',
-  'pc-1': 'high', 'pc-2': 'medium',
-  'sad-1': 'high', 'sad-2': 'medium',
-  'bcroi-1': 'medium', 'bcroi-2': 'low',
-  'krr-1': 'medium', 'krr-2': 'low',
-  'pm-1': 'medium', 'pm-2': 'low',
-  'btm-1': 'medium', 'btm-2': 'low',
-  'prm-1': 'high', 'prm-2': 'medium',
-  'ag-1': 'low', 'ag-2': 'medium',
-  'ibm-1': 'high', 'ibm-2': 'medium',
-  'csu-1': 'high', 'csu-2': 'low',
-  'cs-1': 'high', 'cs-2': 'high',
-  'crm-1': 'medium', 'crm-2': 'low',
-  'fpm-1': 'high', 'fpm-2': 'medium',
-  'sec-1': 'high', 'sec-2': 'medium',
-  'km-1': 'medium', 'km-2': 'low',
-  'tp-1': 'high',
-  'as-1': 'medium',
-  'sap-1': 'medium',
-  'ns-1': 'medium',
-  'drm-1': 'medium',
-  'pman-1': 'medium',
-  'perf-1': 'medium',
+  'mi-1':'medium','mi-2':'low','ci-1':'medium','ci-2':'low','cai-1':'medium','cai-2':'high',
+  'dg-1':'low','dg-2':'medium','lm-1':'medium','lm-2':'medium','oq-1':'low','oq-2':'high',
+  'cdr-1':'medium','cdr-2':'low','pc-1':'high','pc-2':'medium','sad-1':'high','sad-2':'medium',
+  'bcroi-1':'medium','bcroi-2':'low','krr-1':'medium','krr-2':'low','pm-1':'medium','pm-2':'low',
+  'btm-1':'medium','btm-2':'low','prm-1':'high','prm-2':'medium','ag-1':'low','ag-2':'medium',
+  'ibm-1':'high','ibm-2':'medium','csu-1':'high','csu-2':'low','cs-1':'high','cs-2':'high',
+  'crm-1':'medium','crm-2':'low','fpm-1':'high','fpm-2':'medium','sec-1':'high','sec-2':'medium',
+  'km-1':'medium','km-2':'low','tp-1':'high','as-1':'medium','sap-1':'medium','ns-1':'medium',
+  'drm-1':'medium','pman-1':'medium','perf-1':'medium',
 };
 
-//  STATE
 let currentScreen = 0;
 let domainRatings = {};
 let selectedFocusAreas = {};
@@ -1579,77 +581,59 @@ let selectedUseCases = {};
 let deepDiveNotes = {};
 let activeDomain = null;
 
-//  INIT 
 document.addEventListener('DOMContentLoaded', () => {
   renderDomainRatings();
   renderDomainSidebar();
   updateHeaderCount();
 });
 
-//  NAVIGATION 
 function goToScreen(n) {
   document.getElementById('screen-' + currentScreen).classList.remove('active');
   document.getElementById('prog-' + currentScreen).classList.remove('active');
   if (currentScreen < n) document.getElementById('prog-' + currentScreen).classList.add('done');
-
   currentScreen = n;
   document.getElementById('screen-' + n).classList.add('active');
-
-  // Update progress
   for (let i = 0; i < 6; i++) {
     document.getElementById('prog-' + i).classList.remove('active');
     if (i < n) document.getElementById('prog-' + i).classList.add('done');
   }
   document.getElementById('prog-' + n).classList.add('active');
-
   if (n === 3) renderNotesScreen();
   if (n === 4) renderUseCasesScreen();
   if (n === 5) { renderResultsScreen(); renderMatrix(); }
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
   updateHeaderCount();
 }
 
-function scrollToAgenda() {
-  document.getElementById('agenda').scrollIntoView({ behavior: 'smooth' });
-}
+function scrollToAgenda() { document.getElementById('agenda').scrollIntoView({ behavior: 'smooth' }); }
 
-//  SCREEN 1: DOMAIN RATINGS 
 function renderDomainRatings() {
-  const container = document.getElementById('domainRatingList');
-  container.innerHTML = domains.map(d => `
+  document.getElementById('domainRatingList').innerHTML = domains.map(d => `
     <div class="priority-item">
       <div>
-        <div class="priority-item-name">${d.icon} ${d.name}</div>
+        <div class="priority-item-name">${d.name}</div>
         <div class="priority-item-domain">${d.desc}</div>
       </div>
       <div class="rating-stars" id="stars-${d.id}">
-        ${[1,2,3,4,5].map(v => `<div class="star" data-v="${v}" onclick="setRating('${d.id}', ${v})">${v}</div>`).join('')}
+        ${[1,2,3,4,5].map(v => `<div class="star" data-v="${v}" onclick="setRating('${d.id}',${v})">${v}</div>`).join('')}
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function setRating(domainId, value) {
   domainRatings[domainId] = value;
-  const container = document.getElementById('stars-' + domainId);
-  container.querySelectorAll('.star').forEach(s => {
+  document.getElementById('stars-' + domainId).querySelectorAll('.star').forEach(s => {
     s.classList.toggle('lit', parseInt(s.dataset.v) <= value);
   });
 }
 
-//  SCREEN 2: FOCUS AREAS 
 function renderDomainSidebar() {
-  const sidebar = document.getElementById('domainSidebar');
-  sidebar.innerHTML = domains.map(d => {
+  document.getElementById('domainSidebar').innerHTML = domains.map(d => {
     const count = d.focusAreas.filter(fa => selectedFocusAreas[fa.id]).length;
-    return `
-      <button class="domain-btn ${activeDomain === d.id ? 'active' : ''}" onclick="setActiveDomain('${d.id}')">
-        <span class="domain-btn-icon">${d.icon}</span>
-        <span class="domain-btn-label">${d.name}</span>
-        ${count > 0 ? `<span class="domain-btn-count">${count}</span>` : ''}
-      </button>
-    `;
+    return `<button class="domain-btn ${activeDomain === d.id ? 'active' : ''}" onclick="setActiveDomain('${d.id}')">
+      <span class="domain-btn-label">${d.name}</span>
+      ${count > 0 ? `<span class="domain-btn-count">${count}</span>` : ''}
+    </button>`;
   }).join('');
 }
 
@@ -1661,53 +645,36 @@ function setActiveDomain(domainId) {
 
 function renderFocusAreasPanel(domainId) {
   const domain = domains.find(d => d.id === domainId);
-  const panel = document.getElementById('focusAreasPanel');
   const rating = domainRatings[domainId];
-  const ratingStars = rating ? ''.repeat(rating) + ''.repeat(5-rating) : 'Not rated';
-
-  panel.innerHTML = `
+  const ratingText = rating ? rating + '/5' : 'Not rated';
+  document.getElementById('focusAreasPanel').innerHTML = `
     <div class="domain-header">
       <div>
-        <div class="domain-title">${domain.icon} ${domain.name}</div>
-        <div class="domain-desc">${domain.desc} · Rating: <strong style="color:var(--kuka-orange)">${ratingStars}</strong></div>
+        <div class="domain-title">${domain.name}</div>
+        <div class="domain-desc">${domain.desc} · Rating: <strong style="color:var(--kuka-orange)">${ratingText}</strong></div>
       </div>
       <div class="selection-hint">Click to select / deselect</div>
     </div>
-    <div class="focus-areas-grid">
-      ${domain.focusAreas.map(fa => renderFocusCard(fa)).join('')}
-    </div>
-  `;
+    <div class="focus-areas-grid">${domain.focusAreas.map(fa => renderFocusCard(fa)).join('')}</div>`;
 }
 
 function renderFocusCard(fa) {
   const isSelected = !!selectedFocusAreas[fa.id];
-  return `
-    <div class="focus-card ${isSelected ? 'selected' : ''}" onclick="toggleFocusArea('${fa.id}')" id="fc-${fa.id}">
-      <div class="focus-card-check">${isSelected ? '' : ''}</div>
-      <div class="focus-card-icon">${fa.icon}</div>
-      <div class="focus-card-name">${fa.name}</div>
-      <div class="focus-card-desc">${fa.desc}</div>
-      <div class="focus-card-tags">${fa.tags.map(t => `<span class="focus-tag">${t}</span>`).join('')}</div>
-    </div>
-  `;
+  return `<div class="focus-card ${isSelected ? 'selected' : ''}" onclick="toggleFocusArea('${fa.id}')" id="fc-${fa.id}">
+    <div class="focus-card-check">${isSelected ? '✓' : ''}</div>
+    <div class="focus-card-name">${fa.name}</div>
+    <div class="focus-card-desc">${fa.desc}</div>
+    <div class="focus-card-tags">${fa.tags.map(t => `<span class="focus-tag">${t}</span>`).join('')}</div>
+  </div>`;
 }
 
 function toggleFocusArea(faId) {
   const domain = domains.find(d => d.focusAreas.some(fa => fa.id === faId));
   const fa = domain.focusAreas.find(f => f.id === faId);
-
-  if (selectedFocusAreas[faId]) {
-    delete selectedFocusAreas[faId];
-  } else {
-    selectedFocusAreas[faId] = { ...fa, domainId: domain.id, domainName: domain.name };
-  }
-
-  // Re-render just the card
+  if (selectedFocusAreas[faId]) { delete selectedFocusAreas[faId]; }
+  else { selectedFocusAreas[faId] = { ...fa, domainId: domain.id, domainName: domain.name }; }
   const cardEl = document.getElementById('fc-' + faId);
-  if (cardEl) {
-    cardEl.outerHTML = renderFocusCard(fa);
-  }
-
+  if (cardEl) cardEl.outerHTML = renderFocusCard(fa);
   renderSelectionCounter();
   renderDomainSidebar();
   updateHeaderCount();
@@ -1716,192 +683,123 @@ function toggleFocusArea(faId) {
 function renderSelectionCounter() {
   const count = Object.keys(selectedFocusAreas).length;
   document.getElementById('selCountNum').textContent = count;
-
-  const pills = document.getElementById('selPills');
   const items = Object.values(selectedFocusAreas);
-  pills.innerHTML = items.slice(0, 6).map(fa => `
-    <div class="sc-pill">
-      ${fa.name}
-      <button onclick="toggleFocusArea('${fa.id}')">×</button>
-    </div>
-  `).join('') + (items.length > 6 ? `<div class="sc-pill">+${items.length - 6} more</div>` : '');
+  document.getElementById('selPills').innerHTML = items.slice(0,6).map(fa =>
+    `<div class="sc-pill">${fa.name}<button onclick="toggleFocusArea('${fa.id}')">x</button></div>`
+  ).join('') + (items.length > 6 ? `<div class="sc-pill">+${items.length-6} more</div>` : '');
 }
 
-//  SCREEN 3: NOTES 
 function renderNotesScreen() {
-  const container = document.getElementById('notesContainer');
   const selected = Object.values(selectedFocusAreas);
-
   if (selected.length === 0) {
-    container.innerHTML = `<div class="empty-state"><div class="es-icon"></div><p>No focus areas selected yet. Go back and select some areas first.</p></div>`;
+    document.getElementById('notesContainer').innerHTML = `<div class="empty-state"><p>No focus areas selected yet. Go back and select some areas first.</p></div>`;
     return;
   }
-
   const grouped = {};
-  selected.forEach(fa => {
-    if (!grouped[fa.domainName]) grouped[fa.domainName] = [];
-    grouped[fa.domainName].push(fa);
-  });
-
-  container.innerHTML = Object.entries(grouped).map(([domain, areas]) => `
+  selected.forEach(fa => { if (!grouped[fa.domainName]) grouped[fa.domainName] = []; grouped[fa.domainName].push(fa); });
+  document.getElementById('notesContainer').innerHTML = Object.entries(grouped).map(([domain, areas]) => `
     <div class="use-case-section">
-      <div class="use-case-header">
-        <div class="use-case-domain-badge">${domain}</div>
+      <div class="use-case-header"><div class="use-case-domain-badge">${domain}</div></div>
+      <div class="notes-grid">${areas.map(fa => `
+        <div class="note-card">
+          <h4>${fa.name}</h4>
+          <div class="note-domain">${fa.domainName}</div>
+          <textarea placeholder="What is painful today? What systems are involved? What would great look like?" onchange="saveNote('${fa.id}',this.value)" onblur="saveNote('${fa.id}',this.value)">${deepDiveNotes[fa.id]||''}</textarea>
+        </div>`).join('')}
       </div>
-      <div class="notes-grid">
-        ${areas.map(fa => `
-          <div class="note-card">
-            <h4>${fa.icon} ${fa.name}</h4>
-            <div class="note-domain">${fa.domainName}</div>
-            <textarea
-              placeholder="What is painful today? What systems are involved? What would great look like?&#10;&#10;E.g. 'Manual process taking 3 hours... data in SAP & Salesforce... reps complain about X...'"
-              onchange="saveNote('${fa.id}', this.value)"
-              onblur="saveNote('${fa.id}', this.value)"
-            >${deepDiveNotes[fa.id] || ''}</textarea>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-function saveNote(faId, value) {
-  deepDiveNotes[faId] = value;
-}
+function saveNote(faId, value) { deepDiveNotes[faId] = value; }
 
-//  SCREEN 4: USE CASES 
 function renderUseCasesScreen() {
-  const container = document.getElementById('useCasesContainer');
   const selected = Object.values(selectedFocusAreas);
-
   if (selected.length === 0) {
-    container.innerHTML = `<div class="empty-state"><div class="es-icon"></div><p>No focus areas selected. Go back and select areas first.</p></div>`;
+    document.getElementById('useCasesContainer').innerHTML = `<div class="empty-state"><p>No focus areas selected. Go back and select areas first.</p></div>`;
     return;
   }
-
   const grouped = {};
-  selected.forEach(fa => {
-    if (!grouped[fa.domainName]) grouped[fa.domainName] = [];
-    grouped[fa.domainName].push(fa);
-  });
-
+  selected.forEach(fa => { if (!grouped[fa.domainName]) grouped[fa.domainName] = []; grouped[fa.domainName].push(fa); });
   let html = '';
   Object.entries(grouped).forEach(([domain, areas]) => {
-    let domainHtml = `
-      <div class="use-case-section">
-        <div class="use-case-header">
-          <div class="use-case-domain-badge">${domain}</div>
-        </div>
-        <div class="use-case-grid">
-    `;
+    let dHtml = `<div class="use-case-section"><div class="use-case-header"><div class="use-case-domain-badge">${domain}</div></div><div class="use-case-grid">`;
     areas.forEach(fa => {
-      const ucs = useCaseLibrary[fa.id] || [];
-      if (ucs.length === 0) return;
-      ucs.forEach(uc => {
+      (useCaseLibrary[fa.id] || []).forEach(uc => {
         const isSel = !!selectedUseCases[uc.id];
-        domainHtml += `
-          <div class="use-case-card ${isSel ? 'selected' : ''}" onclick="toggleUseCase('${uc.id}', '${fa.id}')" id="uc-${uc.id}">
-            <div class="uc-check">${isSel ? '' : ''}</div>
-            <div class="uc-icon">${uc.icon}</div>
-            <div class="uc-title">${uc.title}</div>
-            <div class="uc-desc">${uc.desc}</div>
-            <span class="uc-value ${uc.value}">
-              ${uc.value === 'high' ? ' High Value' : uc.value === 'medium' ? ' Medium Value' : ' Exploratory'}
-            </span>
-            <div style="font-size:11px;color:var(--kuka-mid);margin-top:6px;">${fa.name} · ${fa.domainName}</div>
-          </div>
-        `;
+        dHtml += `<div class="use-case-card ${isSel?'selected':''}" onclick="toggleUseCase('${uc.id}','${fa.id}')" id="uc-${uc.id}">
+          <div class="uc-check">${isSel?'✓':''}</div>
+          <div class="uc-title">${uc.title}</div>
+          <div class="uc-desc">${uc.desc}</div>
+          <span class="uc-value ${uc.value}">${uc.value==='high'?'High Value':uc.value==='medium'?'Medium Value':'Exploratory'}</span>
+          <div style="font-size:11px;color:var(--kuka-mid);margin-top:6px;">${fa.name} · ${fa.domainName}</div>
+        </div>`;
       });
     });
-    domainHtml += `</div></div>`;
-    html += domainHtml;
+    dHtml += `</div></div>`;
+    html += dHtml;
   });
-
-  container.innerHTML = html || `<div class="empty-state"><div class="es-icon"></div><p>No predefined use cases for your selected areas yet. Add custom ones in notes.</p></div>`;
+  document.getElementById('useCasesContainer').innerHTML = html || `<div class="empty-state"><p>No predefined use cases for your selected areas.</p></div>`;
 }
 
 function toggleUseCase(ucId, faId) {
   const domain = domains.find(d => d.focusAreas.some(fa => fa.id === faId));
   const fa = domain?.focusAreas.find(f => f.id === faId);
   let uc = null;
-  Object.values(useCaseLibrary).forEach(ucs => { const found = ucs.find(u => u.id === ucId); if (found) uc = found; });
-
-  if (selectedUseCases[ucId]) {
-    delete selectedUseCases[ucId];
-  } else {
-    selectedUseCases[ucId] = { ...uc, faName: fa?.name, domainName: domain?.name };
-  }
-
+  Object.values(useCaseLibrary).forEach(ucs => { const f = ucs.find(u => u.id === ucId); if (f) uc = f; });
+  if (selectedUseCases[ucId]) { delete selectedUseCases[ucId]; }
+  else { selectedUseCases[ucId] = { ...uc, faName: fa?.name, domainName: domain?.name }; }
   const el = document.getElementById('uc-' + ucId);
-  if (el) {
-    el.classList.toggle('selected', !!selectedUseCases[ucId]);
-    el.querySelector('.uc-check').textContent = selectedUseCases[ucId] ? '' : '';
-  }
+  if (el) { el.classList.toggle('selected', !!selectedUseCases[ucId]); el.querySelector('.uc-check').textContent = selectedUseCases[ucId] ? '✓' : ''; }
   updateHeaderCount();
 }
 
-//  SCREEN 5: RESULTS 
 function renderResultsScreen() {
   const areas = Object.values(selectedFocusAreas);
   const usecases = Object.values(selectedUseCases);
   const domainsInScope = [...new Set(areas.map(a => a.domainName))];
-
   document.getElementById('stat-domains').textContent = domainsInScope.length;
   document.getElementById('stat-areas').textContent = areas.length;
   document.getElementById('stat-uc').textContent = usecases.length;
 
-  // Shortlist areas sorted by domain rating
-  const sortedAreas = [...areas].sort((a, b) => (domainRatings[b.domainId] || 0) - (domainRatings[a.domainId] || 0));
-  document.getElementById('shortlistAreas').innerHTML = sortedAreas.length ? sortedAreas.map((fa, i) => {
-    const rating = domainRatings[fa.domainId] || 0;
-    return `
-      <div class="shortlist-item">
-        <div class="si-rank">${i+1}</div>
-        <div class="si-info">
-          <div class="si-name">${fa.icon} ${fa.name}</div>
-          <div class="si-domain">${fa.domainName}</div>
-          <div class="si-rating">
-            ${[1,2,3,4,5].map(v => `<div class="si-dot ${v <= rating ? 'filled' : ''}"></div>`).join('')}
-          </div>
-        </div>
+  const sortedAreas = [...areas].sort((a,b) => (domainRatings[b.domainId]||0)-(domainRatings[a.domainId]||0));
+  document.getElementById('shortlistAreas').innerHTML = sortedAreas.length ? sortedAreas.map((fa,i) => {
+    const r = domainRatings[fa.domainId] || 0;
+    return `<div class="shortlist-item">
+      <div class="si-rank">${i+1}</div>
+      <div class="si-info">
+        <div class="si-name">${fa.name}</div>
+        <div class="si-domain">${fa.domainName}</div>
+        <div class="si-rating">${[1,2,3,4,5].map(v=>`<div class="si-dot ${v<=r?'filled':''}"></div>`).join('')}</div>
       </div>
-    `;
-  }).join('') : '<div class="empty-state"><div class="es-icon"></div><p>No areas selected yet.</p></div>';
+    </div>`;
+  }).join('') : '<div class="empty-state"><p>No areas selected yet.</p></div>';
 
-  // Use cases
-  document.getElementById('shortlistUseCases').innerHTML = usecases.length ? usecases.map(uc => `
-    <div class="uc-shortlist-item">
-      <div class="ucsi-title">${uc.icon} ${uc.title}</div>
+  document.getElementById('shortlistUseCases').innerHTML = usecases.length ? usecases.map(uc =>
+    `<div class="uc-shortlist-item">
+      <div class="ucsi-title">${uc.title}</div>
       <div class="ucsi-area">${uc.faName} · ${uc.domainName}</div>
-      <div class="ucsi-value"><span class="uc-value ${uc.value}" style="font-size:11px;">${uc.value === 'high' ? ' High Value' : ' Medium Value'}</span></div>
-    </div>
-  `).join('') : '<div class="empty-state"><div class="es-icon"></div><p>No use cases selected yet.</p></div>';
+      <div class="ucsi-value"><span class="uc-value ${uc.value}" style="font-size:11px;">${uc.value==='high'?'High Value':'Medium Value'}</span></div>
+    </div>`).join('') : '<div class="empty-state"><p>No use cases selected yet.</p></div>';
 
-  // Notes summary
   const notesWithContent = areas.filter(fa => deepDiveNotes[fa.id]?.trim());
+  const notesEl = document.getElementById('notesResults');
   if (notesWithContent.length > 0) {
-    document.getElementById('notesResults').innerHTML = `
-      <div class="result-panel-header">Workshop Notes</div>
-      <div class="result-panel-body">
-        ${notesWithContent.map(fa => `
-          <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f5f5f5;">
-            <div style="font-size:14px;font-weight:700;margin-bottom:4px;">${fa.icon} ${fa.name}</div>
-            <div style="font-size:11px;color:var(--kuka-mid);margin-bottom:6px;">${fa.domainName}</div>
-            <div style="font-size:13px;color:var(--kuka-gray);line-height:1.6;white-space:pre-wrap;">${deepDiveNotes[fa.id]}</div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-  } else {
-    document.getElementById('notesResults').style.display = 'none';
-  }
+    notesEl.style.display = '';
+    notesEl.innerHTML = `<div class="result-panel-header">Workshop Notes</div><div class="result-panel-body">${
+      notesWithContent.map(fa => `<div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f5f5f5;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">${fa.name}</div>
+        <div style="font-size:11px;color:var(--kuka-mid);margin-bottom:6px;">${fa.domainName}</div>
+        <div style="font-size:13px;color:var(--kuka-gray);line-height:1.6;white-space:pre-wrap;">${deepDiveNotes[fa.id]}</div>
+      </div>`).join('')
+    }</div>`;
+  } else { notesEl.style.display = 'none'; }
 }
 
 function renderMatrix() {
   const usecases = Object.values(selectedUseCases);
-  const cells = ['high-low','high-medium','high-high','medium-low','medium-medium','medium-high','low-low','low-medium','low-high'];
-  cells.forEach(c => { document.getElementById('cell-' + c).innerHTML = ''; });
-
+  ['high-low','high-medium','high-high','medium-low','medium-medium','medium-high','low-low','low-medium','low-high'].forEach(c => {
+    document.getElementById('cell-'+c).innerHTML = '';
+  });
   if (usecases.length === 0) {
     document.getElementById('matrixEmpty').style.display = 'block';
     document.getElementById('matrixGrid').style.display = 'none';
@@ -1909,17 +807,13 @@ function renderMatrix() {
   }
   document.getElementById('matrixEmpty').style.display = 'none';
   document.getElementById('matrixGrid').style.display = 'grid';
-
   usecases.forEach(uc => {
-    const value  = uc.value  || 'medium';
-    const effort = effortData[uc.id] || 'medium';
-    const cellId = 'cell-' + value + '-' + effort;
-    const cell = document.getElementById(cellId);
+    const cell = document.getElementById('cell-'+(uc.value||'medium')+'-'+(effortData[uc.id]||'medium'));
     if (!cell) return;
     const chip = document.createElement('div');
     chip.className = 'matrix-chip';
     chip.textContent = uc.title;
-    chip.title = uc.faName + ' · ' + uc.domainName;
+    chip.title = (uc.faName||'') + ' · ' + (uc.domainName||'');
     cell.appendChild(chip);
   });
 }
@@ -1927,65 +821,29 @@ function renderMatrix() {
 function updateHeaderCount() {
   const areas = Object.keys(selectedFocusAreas).length;
   const ucs = Object.keys(selectedUseCases).length;
-  const el = document.getElementById('headerSelCount');
-  if (areas > 0) {
-    el.textContent = `${areas} area${areas !== 1 ? 's' : ''} · ${ucs} use case${ucs !== 1 ? 's' : ''} selected`;
-  } else {
-    el.textContent = '';
-  }
+  document.getElementById('headerSelCount').textContent = areas > 0 ? `${areas} area${areas!==1?'s':''} · ${ucs} use case${ucs!==1?'s':''} selected` : '';
 }
 
-//  EXPORT 
 function exportSummary() {
   const areas = Object.values(selectedFocusAreas);
   const usecases = Object.values(selectedUseCases);
   const date = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
-
-  let text = `KUKA ROBOTICS, AGENTIC AI SCOPING WORKSHOP\n`;
-  text += `Accenture Growth Strategy · ${date}\n`;
-  text += `${'='.repeat(60)}\n\n`;
-
-  text += `DOMAIN RATINGS\n${'-'.repeat(40)}\n`;
-  domains.forEach(d => {
-    const r = domainRatings[d.id];
-    text += `${d.name}: ${r ? ''.repeat(r) + ''.repeat(5-r) + ` (${r}/5)` : 'Not rated'}\n`;
-  });
-
+  let text = `KUKA ROBOTICS - DIS SCOPING WORKSHOP\nAccenture Growth Strategy · ${date}\n${'='.repeat(60)}\n\nDOMAIN RATINGS\n${'-'.repeat(40)}\n`;
+  domains.forEach(d => { const r = domainRatings[d.id]; text += `${d.name}: ${r ? r+'/5' : 'Not rated'}\n`; });
   text += `\nSELECTED FOCUS AREAS (${areas.length})\n${'-'.repeat(40)}\n`;
   const grouped = {};
-  areas.forEach(fa => { if (!grouped[fa.domainName]) grouped[fa.domainName] = []; grouped[fa.domainName].push(fa); });
-  Object.entries(grouped).forEach(([d, fas]) => {
-    text += `\n[${d}]\n`;
-    fas.forEach(fa => {
-      text += `  • ${fa.name}\n`;
-      if (deepDiveNotes[fa.id]) text += `    Notes: ${deepDiveNotes[fa.id]}\n`;
-    });
-  });
-
+  areas.forEach(fa => { if (!grouped[fa.domainName]) grouped[fa.domainName]=[]; grouped[fa.domainName].push(fa); });
+  Object.entries(grouped).forEach(([d,fas]) => { text += `\n[${d}]\n`; fas.forEach(fa => { text += `  - ${fa.name}\n`; if (deepDiveNotes[fa.id]) text += `    Notes: ${deepDiveNotes[fa.id]}\n`; }); });
   text += `\nSELECTED USE CASES (${usecases.length})\n${'-'.repeat(40)}\n`;
-  usecases.forEach((uc, i) => {
-    text += `\n${i+1}. ${uc.title} [${uc.value.toUpperCase()} VALUE]\n`;
-    text += `   Area: ${uc.faName} · ${uc.domainName}\n`;
-    text += `   ${uc.desc}\n`;
-  });
-
-  text += `\nNEXT STEPS\n${'-'.repeat(40)}\n`;
-  text += `1. Business case development for top 2-3 use cases (Week 1-2)\n`;
-  text += `2. Technical feasibility assessment (Week 2-3)\n`;
-  text += `3. Pilot design & sponsor alignment (Week 3-4)\n`;
-
-  const blob = new Blob([text], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
+  usecases.forEach((uc,i) => { text += `\n${i+1}. ${uc.title} [${uc.value.toUpperCase()} VALUE]\n   Area: ${uc.faName} · ${uc.domainName}\n   ${uc.desc}\n`; });
+  text += `\nNEXT STEPS\n${'-'.repeat(40)}\n1. Business case development for top 2-3 use cases (Week 1-2)\n2. Technical feasibility assessment (Week 2-3)\n3. Pilot design and sponsor alignment (Week 3-4)\n`;
   const a = document.createElement('a');
-  a.href = url;
-  a.download = `KUKA-AI-Scoping-Workshop-${date.replace(/ /g,'-')}.txt`;
+  a.href = URL.createObjectURL(new Blob([text], {type:'text/plain'}));
+  a.download = `KUKA-DIS-Scoping-Workshop-${date.replace(/ /g,'-')}.txt`;
   a.click();
-  URL.revokeObjectURL(url);
 }
 
-function printPage() {
-  window.print();
-}
+function printPage() { window.print(); }
 </script>
 </body>
 </html>
